@@ -25,7 +25,6 @@ To compile the paper from the source code, follow these steps:
 
 The first command compiles the main.tex file, the second command runs BibTeX to generate the bibliography, and the third and fourth commands compile the main.tex file again to include the bibliography.
 
-## How to Contribute 
 ## How to Contribute
 
 We welcome contributions to improve this template or add new features. To contribute, follow these steps:
