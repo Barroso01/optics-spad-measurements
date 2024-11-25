@@ -14,7 +14,7 @@ To compile the paper from the source code, follow these steps:
 
 2. Navigate to the repository directory:
    ```bash
-    cd Template
+    cd paper-template
 
 3. Follow the sequence to compile the LaTeX source code:
     ```bash
@@ -36,7 +36,7 @@ We welcome contributions to improve this template or add new features. To contri
    Clone your forked repository to your local machine:
    ```bash
    git clone https://github.com/Barroso01/paper-template.git
-   cd Template
+   cd paper-template
 
 3. **Create a Branch**:
     Create a branch to isolate your changes. 
@@ -59,7 +59,7 @@ We welcome contributions to improve this template or add new features. To contri
     git init
     git add .
     git commit -m "Initial commit: LaTeX research paper template"
-    git remote add origin https://github.com/yourusername/ResearchPaperTemplate.git
+    git remote add origin https://github.com/Barroso01/paper-template.git
     git branch -M main
     git push -u origin main
 
