@@ -54,7 +54,7 @@ We welcome contributions to improve this template or add new features. To contri
     git commit -m "Add new feature"
     git push origin my-feature
     
-5.1 **Directly contribute to the main branch**:
+6. **Directly contribute to the main branch**:
     ```bash
     git init
     git add .
@@ -63,11 +63,10 @@ We welcome contributions to improve this template or add new features. To contri
     git branch -M main
     git push -u origin main
 
-
-6. **Create a Pull Request**:
+7. **Create a Pull Request**:
     Go to your repository on GitHub and click the "New pull request" button to create a pull request to the original repository.
 
-7. **Engage with the Community**:
+8. **Engage with the Community**:
     The repository maintainers will review your pull request. Engage with the community and address any comments or questions raised during the review.
 
 Thank you for your contribution! 🎉
