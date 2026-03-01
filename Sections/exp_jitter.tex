@@ -1,0 +1,7 @@
+To establish the baseline temporal resolution of the detection system, the intrinsic timing jitter is measured using a synchronized start-stop protocol.
+\begin{enumerate}
+    \item \textbf{Optical Setup:} The 50 MHz femtosecond laser is heavily attenuated using Neutral Density (ND) filters. The attenuation is tuned such that the SPAD detection probability remains strictly under 5\% per pulse to prevent pile-up distortion.
+    \item \textbf{Electronic Routing:} The synchronization clock (fast photodiode) is routed to Channel 1 of the Time Tagger. The SPAD output is routed to Channel 2.
+    \item \textbf{Data Acquisition:} A continuous correlation measurement is executed between Channel 1 (Start) and Channel 2 (Stop) over a defined exposure time, accumulating a delay histogram.
+    \item \textbf{Analysis:} The resulting peak is fitted with a Gaussian distribution. The Full Width at Half Maximum (FWHM) of this peak defines the total system jitter (comprising the laser pulse width, SPAD jitter, and the 42 ps intrinsic jitter of the Swabian Time Tagger).
+\end{enumerate}

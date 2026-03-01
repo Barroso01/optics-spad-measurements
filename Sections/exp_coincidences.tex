@@ -1,0 +1,13 @@
+With the temporal boundaries defined, the setup is expanded to evaluate the second-order correlation and multi-photon events.
+\begin{enumerate}
+    \item \textbf{Optical Setup:} The attenuated pulsed beam is split using a 50:50 beamsplitter and directed into multiple SPAD pixels. 
+    \item \textbf{Coincidence Window Definition:} The temporal coincidence window ($\Delta t_c$) is strictly defined based on the Phase 1 results, typically set to $2\sigma$ or $3\sigma$ of the measured system jitter to ensure genuine coincidences while rejecting background dark counts.
+    \item \textbf{Data Acquisition:} Time tags are continuously streamed. The hardware clock remains on Channel 1, while SPAD pixels are routed to Channels 2, 3, and 4. 
+    \item \textbf{Statistical Processing:} 
+    \begin{itemize}
+        \item \textbf{Probabilities:} Independent count rates for each channel are extracted to calculate the per-pulse detection probability ($P_A, P_B$).
+        \item \textbf{Second-Order Coherence:} The discrete cross-correlation between channels is computed to extract the experimental $g^{(2)}(0)$ value, verifying the Poissonian nature of the source.
+        \item \textbf{Multi-Fold Coincidences:} A coincidence matrix is generated to identify 2-fold, 3-fold, and 4-fold simultaneous detection events across the pixel array.
+    \end{itemize}
+    \item \textbf{Hardware Verification:} The externally tagged coincidences from the Swabian instrument are cross-referenced against the on-chip coincidence counting logic of the Novoviz SPAD module to validate the payload's internal processing fidelity.
+\end{enumerate}

@@ -1,2 +1,48 @@
-This is the introduction. Describe the background and motivation for the work here. 
-This is an example of a citation \cite{einstein1905}.
+Characterization of single photon avalanche diodes (SPAD) is a practice that consists on experimentaly quantifying its four main performance indicators known as: 
+jitter, photon detection probability (PDP), dark count rate (DCR) and deadtime. 
+This is done with multiple techiques such as retroluminecence \cite{}, microscopic techniques \cite{}, and Time-Correlated single photon counting (TCSPC). \\
+
+This Lab-Report is focused on measuring SPAD's performance indicators through a series of TCSPC experiments using different light sources. 
+The goal is to report the temporal response of integrated SPAD detectors together with the statistical properties of the light sources. 
+
+\subsection{Timing SPAD Detector Response Function: Jitter}
+A photon incident of the active area of a SPAD detector, triggers an avalanche of charge carriers creating a current signal. 
+The current is later detected and converted to a digital signal; typicaly within less than $100 ps$.
+This temporal delay between the time of photon arrival and signal detection is called jitter. \\
+
+Timing jitter is quantified by measuring delay $\Delta t$ between the emission of 
+a LASER pulse (recorded by a Laser Clock), and the detection signal from the SPAD. 
+Accumulating these events in a histogram it is possible to extract the instrument response function (IRF). 
+The jitter is then reported as the Full Width at Half Maximum (FWHM) of this distribution. 
+
+\subsection*{Detection Probabilities (Pulsed Source)}
+A pulsed LASER can be described by its repetition rate $f_{rep}$.
+Thus, a total number of pulses $N_{pulses}$ in an exposure time $t_{exp}$, is given by $N_{pulses} =f_{rep} \times t_{exp} $. 
+If a SPAD registers $C_A$ total counts during this exposure, the average probability of detecting a photon per pulse is:
+\begin{equation}
+    P_A = \frac{C_A}{N_{pulses}} = \frac{R_A}{f_{rep}}
+\end{equation}
+where $R_A = C_A / T_{exp}$ is the average count rate in counts per second (cps). 
+$P_A$ also known as Photon Detection Probability (PDP), is typically $< 0.05$.
+
+\subsection*{Statistical Properties of Light}
+
+\subsubsection*{Second Order Coherence $g^{(2)}$}
+The second order correlation function $g^{(2)}$ quantifies intensity correlations, photon statistics and time separated probability of detecting two photons. 
+A value for $g^{(2)} < 1$, is an indicator of antibuching; a quantum characteristic of the respective light source. \\
+
+Experimentally -- for a pulsed LASER set-up, $g^{(2)}$ can be calculated using:
+\begin{equation}
+    g^{(2)}(0) = \frac{P_{AB}}{P_A P_B} = \frac{C_{AB} \cdot f_{rep}}{R_A R_B T_{exp}}
+\end{equation}
+For an ideal coherent state (Poissonian statistics), $g^{(2)}(0) = 1$.\\
+
+For the CW LASER and rotating diffuser setup, the delay $\tau$ is continuous. The normalized coincidence rate across a bin width $\Delta \tau$ is:
+$$ g^{(2)}(\tau) = \frac{C_{AB}(\tau)}{R_A R_B \Delta \tau T_{exp}} $$
+
+True thermal light exhibits photon bunching. As the delay approaches zero, the statistics shift from Poissonian to Bose-Einstein, yielding a theoretical limit of:
+$$ g^{(2)}(0) = 2 $$
+The decay of $g^{(2)}(\tau)$ back to 1 as $\tau$ increases maps the coherence time ($\tau_c$) of the pseudothermal source, which is strictly governed by the rotational speed of the optical diffuser.
+
+%This is the introduction. Describe the background and motivation for the work here. 
+%This is an example of a citation \cite{einstein1905}.
