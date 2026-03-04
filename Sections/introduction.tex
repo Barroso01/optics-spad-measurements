@@ -15,25 +15,25 @@ a LASER pulse (recorded by a Laser Clock), and the detection signal from the SPA
 Accumulating these events in a histogram it is possible to extract the instrument response function (IRF). 
 The jitter is then reported as the Full Width at Half Maximum (FWHM) of this distribution. 
 
-\subsection*{Detection Probabilities (Pulsed Source)}
+\subsection{Detection Probabilities (Pulsed Source)}
 A pulsed LASER can be described by its repetition rate $f_{rep}$.
 Thus, a total number of pulses $N_{pulses}$ in an exposure time $t_{exp}$, is given by $N_{pulses} =f_{rep} \times t_{exp} $. 
 If a SPAD registers $C_A$ total counts during this exposure, the average probability of detecting a photon per pulse is:
 \begin{equation}
     P_A = \frac{C_A}{N_{pulses}} = \frac{R_A}{f_{rep}}
 \end{equation}
-where $R_A = C_A / T_{exp}$ is the average count rate in counts per second (cps). 
+where $R_A = C_A / t_{exp}$ is the average count rate in counts per second (cps). 
 $P_A$ also known as Photon Detection Probability (PDP), is typically $< 0.05$.
 
-\subsection*{Statistical Properties of Light}
+\subsection{Statistical Properties of Light}
 
-\subsubsection*{Second Order Coherence $g^{(2)}$}
+\subsubsection{Second Order Coherence $g^{(2)}$}
 The second order correlation function $g^{(2)}$ quantifies intensity correlations, photon statistics and time separated probability of detecting two photons. 
 A value for $g^{(2)} < 1$, is an indicator of antibuching; a quantum characteristic of the respective light source. \\
 
 Experimentally -- for a pulsed LASER set-up, $g^{(2)}$ can be calculated using:
 \begin{equation}
-    g^{(2)}(0) = \frac{P_{AB}}{P_A P_B} = \frac{C_{AB} \cdot f_{rep}}{R_A R_B T_{exp}}
+    g^{(2)}(0) = \frac{P_{AB}}{P_A P_B} = \frac{C_{AB} \cdot f_{rep}}{R_A R_B t_{exp}}
 \end{equation}
 For an ideal coherent state (Poissonian statistics), $g^{(2)}(0) = 1$.\\
 
