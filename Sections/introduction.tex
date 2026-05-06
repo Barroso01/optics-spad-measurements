@@ -1,48 +1,92 @@
-Characterization of single photon avalanche diodes (SPAD) is a practice that consists on experimentaly quantifying its four main performance indicators known as: 
-jitter, photon detection probability (PDP), dark count rate (DCR) and deadtime. 
-This is done with multiple techiques such as retroluminecence \cite{}, microscopic techniques \cite{}, and Time-Correlated single photon counting (TCSPC). \\
+Quantum optics classifies light sources based on the photon emission statistics they exhibit. 
+Phase-coherent sources, like lasers, emit independent photons with low intensity fluctuations. 
+The behaviour of this stream of coherent photons is accounted by \textbf{Poissonian statistics}. 
+In contrast, thermal sources have larger intensity fluctuations due to the random atomic processes that generate the stream. 
+Thus, this is the regime is modeled with \textbf{super-Poissonian statistics}.
+%The bosonic nature of photons in these sources manifests in a phenomenon called photon bunching. 
+%Because these photons tend to occupy the same spatiotemporal modes, they arrive in clumps separated by dark lulls. 
+The third category is reserved for quantum, single-photon sources. 
+In this regime, photons arrive individually, leading to an effect known as photon anti-bunching. 
+Intensity fluctuations of quantum sources are captured by \textbf{sub-poissonian statistics}.  
 
-This Lab-Report is focused on measuring SPAD's performance indicators through a series of TCSPC experiments using different light sources. 
-The goal is to report the temporal response of integrated SPAD detectors together with the statistical properties of the light sources. 
+The focus of this work is to measure the statistical properties of these distinct light sources. 
+This is achieved using state-of-the-art single-photon avalanche diodes (SPADs) and time taggers, which enable the recording of individual photon arrivals and the measurement of coincidences between two SPAD channels. 
+To accurately extract the pure statistics of the light sources, the hardware is first be rigorously baselined. 
+Specifically, the four primary performance indicators of the SPADs —jitter, photon detection probability (PDP), dark count rate (DCR), and dead time— are quantified using Time-Correlated Single Photon Counting (TCSPC) techniques. 
+With the sensor fully characterized, the setup is then utilized to perform high-resolution coincidence measurements across the different light sources, allowing us to accurately report their intrinsic statistical properties while mathematically accounting for detector artifacts.
 
-\subsection{Timing SPAD Detector Response Function: Jitter}
-A photon incident of the active area of a SPAD detector, triggers an avalanche of charge carriers creating a current signal. 
-The current is later detected and converted to a digital signal; typicaly within less than $100 ps$.
-This temporal delay between the time of photon arrival and signal detection is called jitter. \\
 
+\subsection{SPAD Performance Indicators}
+Inside SPADs, a photon incident of the active area of a SPAD detector, triggers an avalanche of charge carriers creating a current signal. 
+The current is later detected and converted to a digital signal; typicaly within less than $100 ps$. 
+Good SPAD detectors have low jitter, deadtimes and dark count rates (DCR) while mantaining high photon detection probabilities (PDP). \\
+
+\textbf{Jitter} refers to the temporal delay between the time of photon arrival and signal detection.
 Timing jitter is quantified by measuring delay $\Delta t$ between the emission of 
 a LASER pulse (recorded by a Laser Clock), and the detection signal from the SPAD. 
 Accumulating these events in a histogram it is possible to extract the instrument response function (IRF). 
-The jitter is then reported as the Full Width at Half Maximum (FWHM) of this distribution. 
+The jitter is then reported as the Full Width at Half Maximum (FWHM) of this distribution. \\
 
-\subsection{Detection Probabilities (Pulsed Source)}
-A pulsed LASER can be described by its repetition rate $f_{rep}$.
-Thus, a total number of pulses $N_{pulses}$ in an exposure time $t_{exp}$, is given by $N_{pulses} =f_{rep} \times t_{exp} $. 
-If a SPAD registers $C_A$ total counts during this exposure, the average probability of detecting a photon per pulse is:
-\begin{equation}
-    P_A = \frac{C_A}{N_{pulses}} = \frac{R_A}{f_{rep}}
-\end{equation}
-where $R_A = C_A / t_{exp}$ is the average count rate in counts per second (cps). 
-$P_A$ also known as Photon Detection Probability (PDP), is typically $< 0.05$.
+After an avalanche is triggered, the SPAD must reduce the voltage across the diode to stop the current in a process called quenching. 
+A period of voltage recharge immediately follows to restore the detector ability to detect incoming photons.  
+The time period between the start of the avalanche and the end of the recharge is referred to as \textbf{dead-time} because the detector remains blind to subsequent incident photons. \\
+
+Not every incident photon successfully triggers a macroscopic avalanche. 
+\textbf{PDP} quantifies the percentage of incident photons that result in a measurable electrical pulse.
+This indicator is dependent on the photon's wavelength and the detector's overvoltage. \\
+
+SPADs will occasionally register false counts even in complete darkness. 
+\textbf{DCR} counts are mainly triggered by thermally generated charge carriers inside the depletion region that initiate an avalanche indistinguishable from a true photon detection.
+Tunneling effects and lattice defects are also causes of DCR. \\
+
+
 
 \subsection{Statistical Properties of Light}
+\textbf{Phase-coherent sources} are defined by an electromagnetic field that oscillates with a precise, constant phase over time. 
+A popular quantum model for these systems makes use of the second quantization formalism of the harmonic oscillator, resulting in a coherent state $|\alpha\rangle$. 
+This state is the right eigenstate of the photon annihilation operator $\hat{a}$, such that $\hat{a}|\alpha\rangle = \alpha|\alpha\rangle$. 
+The eigenvalue $\alpha$ is a complex number where its squared amplitude encodes the average number of photons ($|\alpha|^2 = \mu$), and its angle represents the macroscopic phase of the field.\\
+
+To calculate the probability of detecting $n$ photons, a projection of the coherent state onto the photon number \footnote{Also called Fock basis.} basis results in
+\begin{equation}
+|\alpha\rangle = e^{-\frac{|\alpha|^2}{2}} \sum_{n=0}^{\infty} \frac{\alpha^n}{\sqrt{n!}} |n\rangle.
+\end{equation}
+The probability $P(n) = |\langle n | \alpha \rangle|^2$ simplifies exactly to a Poissonian distribution. 
+Because the phase is stable, individual photons behave completely independently; the arrival of one photon provides no predictive information about the next. 
+Consequently, the variance equals the mean ($\sigma^2 = \mu$). \\
+
+\textbf{Non-coherent sources} —such as stars, flames, or continuous lasers passed through rotating diffusers—exhibit super-Poissonian statistics. 
+In this regime, the total electric field at the detector is the superposition of countless independent waves with random, fluctuating phases:
+\begin{equation}
+E(t) = \sum_i E_i e^{-i(\omega t + \phi_i(t))}
+\end{equation}
+
+Because $E(t)$ is the sum of many random variables, the Central Limit Theorem dictates that the electric field becomes a Gaussian random variable. 
+The absolute square of a Gaussian random field yields a macroscopic intensity $I(t)$ that strictly follows an exponential probability distribution:
+\begin{equation}
+P(I) = \frac{1}{\langle I \rangle} e^{-\frac{I}{\langle I \rangle}}.
+\end{equation}
+
+The bosonic nature of photons in these chaotic fields manifests in a phenomenon called photon bunching. 
+Because photons prefer to occupy the same modes, they arrive in clumps followed by dark lulls. 
+This broadens the photon number distribution into a Bose-Einstein distribution, significantly increasing the statistical noise such that $\sigma^2 = \mu + \mu^2$.\\
+
+\textbf{Single-photon sources} belong to a strictly quantum regime that cannot be described by classical waves. 
+Because the source physically emits photons one at a time, the probability of detecting two photons simultaneously is zero. 
+This forced temporal separation leads to photon anti-bunching, producing a statistical distribution that is tighter than a coherent laser, characterized by $\sigma^2 < \mu$.
 
 \subsubsection{Second Order Coherence $g^{(2)}$}
 The second order correlation function $g^{(2)}$ quantifies intensity correlations, photon statistics and time separated probability of detecting two photons. 
-A value for $g^{(2)} < 1$, is an indicator of antibuching; a quantum characteristic of the respective light source. \\
+For reference, a value for $g^{(2)}(0) < 1$, is an indicator of antibuching; a quantum characteristic of the light source.
+In contrast, an ideal coherent state yields $g^{(2)}(0) = 1$. While thermal light gives $ g^{(2)}(0) = 2 $. \\
 
-Experimentally -- for a pulsed LASER set-up, $g^{(2)}$ can be calculated using:
-\begin{equation}
-    g^{(2)}(0) = \frac{P_{AB}}{P_A P_B} = \frac{C_{AB} \cdot f_{rep}}{R_A R_B t_{exp}}
-\end{equation}
-For an ideal coherent state (Poissonian statistics), $g^{(2)}(0) = 1$.\\
+Tu summarize, second order coherence serves as a tool that dishtinguishes the nature of a variety of light sources. 
+This work aims to present the reader a experimental procedure that measures $g^{(2)}$, leveraging the power of SPAD and time tagger technology. 
 
-For the CW LASER and rotating diffuser setup, the delay $\tau$ is continuous. The normalized coincidence rate across a bin width $\Delta \tau$ is:
-$$ g^{(2)}(\tau) = \frac{C_{AB}(\tau)}{R_A R_B \Delta \tau T_{exp}} $$
+%Experimentally -- for a pulsed LASER set-up, $g^{(2)}$ can be calculated using:
+%\begin{equation}
+%    g^{(2)}(0) = \frac{P_{AB}}{P_A P_B} = \frac{C_{AB} \cdot f_{rep}}{R_A R_B t_{exp}}
+%\end{equation}
 
-True thermal light exhibits photon bunching. As the delay approaches zero, the statistics shift from Poissonian to Bose-Einstein, yielding a theoretical limit of:
-$$ g^{(2)}(0) = 2 $$
-The decay of $g^{(2)}(\tau)$ back to 1 as $\tau$ increases maps the coherence time ($\tau_c$) of the pseudothermal source, which is strictly governed by the rotational speed of the optical diffuser.
 
-%This is the introduction. Describe the background and motivation for the work here. 
-%This is an example of a citation \cite{einstein1905}.
+

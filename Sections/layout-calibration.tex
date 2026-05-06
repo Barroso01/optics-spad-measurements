@@ -1,0 +1,55 @@
+The experimental layout used throught the measurements is presented figure \ref{fig:exp_lay}. 
+The layout is designed to allow interchanging light sources incident on the SPAD. 
+Optical elements can also be introduced between the source and the SPAD for attenuation, modulation and alignment purposes.\\   
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Figures/exp_layout_plain.jpg}
+    \caption{Experimental layout. Source is feed into the system with fiber optic cable that couples into free space with the SM1-FC2 and irradiates the SPAD.}
+    \label{fig:exp_lay}
+\end{figure}
+
+\subsection{SPAD Characterization}
+With the set up complete, a SPADs calibration is performed to set the operational baseline for the subsequent measurements.
+The SPAD is configured with a $V_Op = need to measure$ with the adjustment trimmer potientiometer and deadtime potientometer. 
+We fix the configuration mid-range for optimal performance and proceed to extract the performance indicators. \\
+
+First, a dark count experiment where we run the \texttt{tt.Countrate} function. 
+We integrate 205 measurements give dark counts of $9.74 \hspace{0.1cm} cps$ and $10,301.49 \hspace{0.1cm} cps$ for SPAD A and B respectivley at this specific configuration.
+Next, we extract the dead time of the detector, and afterpulsing probabilities with the procedure listed bellow: 
+\begin{enumerate}
+    \item Connect the CW LASER source to the fiber optics line feeding the system. 
+    \item Connect the SPAD detectors with SMA Cables to Swabian Time Tagger. 
+    \item Initialize the autocorrelation measurement (\texttt{tt.Correlation}) using a single SPAD channel as both the "start" and "stop" trigger. 
+    \item Wait for detection events to accumulate for 10 seconds.
+    \item Extract dead time and afterpulsing probabilities from data (See figure \ref{fig:autocorr}).
+    \item Repeat for 5 time to gather Statistics. 
+\end{enumerate}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/autocorr_measurement.png}
+    \caption{Autocorrelation histogram of the SPAD channels. Dead time is extracted from the temporal delay required for counts to recover from zero. Afterpulsing is extracted from taking the ratio of excess detections following the dead time to the total number of detections}
+    \label{fig:autocorr}
+\end{figure}
+
+The \texttt{tt.Correlation} time tags a series of detection events, calculates the time difference between all events ($\tau$) and builds a histogram out of the number of detections that correspond to a particular time delay. 
+Thus, from figure \ref{fig:autocorr}, we identify the total number of detections in bin $\tau = 0$ and the deadtime as the zero detection plateu. 
+Afterpulsing is extracted as a ratio of excess detections that follow inmediatly after the deadtime to the total number of detections. The results are summarized in the table below:
+\begin{table}[htpb]
+    \centering
+    \caption{Summary of Detector Calibration Parameters}
+    \label{tab:calibration_summary}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Parameter} & \textbf{SPAD 1} & \textbf{SPAD 2} \\
+        \midrule
+        DCR (cps) & $9.74 cps$ & $10,301.49$ \\
+        Mean Dead Time (ns) & $4.90 \pm 0.12$ & $4.85 \pm 0.09$ \\
+        Max Theoretical Rate (MHz) & 204.08 & 206.19 \\
+        Afterpulsing Probability (\%) & 2.41 & 2.30 \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}

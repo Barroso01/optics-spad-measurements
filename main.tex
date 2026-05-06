@@ -12,10 +12,9 @@
 %Abstract 
 \setabstract{This report documents the experimental 
 setup for the characterization of Single Photon Avalanche Diodes (SPADs). 
-The objectives are to measure the timing jitter of the detectors and to perform coincidence detection experiments. 
-Measurements are conducted using distinct light sources such as
-pulsed lasers, continous lasers, and pseudo-thermal light source. 
-This document presents the hardware, optical setups, and resulting data relevant the lab sessions.}
+The objective is to classify different light sources by performing coincidence detection experiments. 
+Measurements are conducted using distinct light sources such as pulsed lasers, continous lasers, and pseudo-thermal light source. 
+Throught the document, the hardware, optical setups, and results are presented to the reader.}
 
 % Begin the document
 \begin{document}
@@ -26,19 +25,18 @@ This document presents the hardware, optical setups, and resulting data relevant
 \input{Sections/introduction}
 
 \section*{Equipment and Materials}
-\input{Sections/materials}
+\input{Sections/materials} 
 
 \newpage
-\section*{Afterpulsing}
-\input{sections/exp_afterpulsing.tex}
+\section*{Layout and Hardware Calibration}
+\input{sections/layout-calibration.tex}
 
-%\newpage
-%\section*{Instrument Response Function and Timing Jitter}
-%\input{Sections/exp_jitter.tex}
+\section*{Poissonian Statistics Verification}
+\input{Sections/poisson.tex}
 
-%\newpage
-%\section*{Pulsed Coincidence and $g^{(2)}$ Statistics}
-%\input{Sections/exp_coincidences.tex}
+\newpage
+\section*{Coincidence Measurements}
+\input{Sections/exp_coincidences.tex}
 
 \section*{Conclusion}
 %\input{Sections/conclusion}

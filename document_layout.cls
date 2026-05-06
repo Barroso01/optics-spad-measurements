@@ -22,7 +22,7 @@
 \setlength{\headheight}{15pt} % Adjust head height to avoid warnings
 
 % Packages for functionality
-\RequirePackage{amsmath,amssymb,graphicx,float,hyperref}
+\RequirePackage{amsmath,amssymb,graphicx,float,hyperref,booktabs}
 \RequirePackage{caption,subcaption} % Captions and subfigures
 
 % Title and abstract formatting

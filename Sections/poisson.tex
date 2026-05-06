@@ -1,0 +1,44 @@
+This section presents the experiment and measurements of the Poissonian and Super-Poisonian probability distributions.
+We followed the procedure bellow: 
+
+\begin{itemize}
+    \item Feed the CW Laser into the optical setup in figure \ref{fig:exp_lay}. 
+    \item Mount Filter in between the source and the SPAD. 
+    \item Define the temporal lenght of the windows integrating event counts: $100 \hspace{1mm} \mu s$ 
+    \item Connect SPAD to Swabian Time Tagger. 
+    \item Run the SWABIAN \texttt{tt.Counter} function and plot histogram. 
+\end{itemize}
+
+\begin{figure}[htpb]
+    \centering
+     \includegraphics[width=0.5\textwidth]{Figures/photon_counts_spad1_01_0.png}
+    %\rule{0.5\textwidth}{5cm}
+    \caption{Photon counting statistics of the CW laser at $1 mW$.}
+    \label{fig:photon_counts_spad1_01_0}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+     \includegraphics[width=0.5\textwidth]{Figures/photon_counts_spad1_00_1.png}
+    %\rule{0.5\textwidth}{5cm}
+    \caption{Photon counting statistics of the attenuated CW laser.}
+    \label{fig:photon_counts_spad1_00_1}
+\end{figure}
+
+
+As shown in figure \ref{fig:photon_counts_spad1_00_1}, the coherent laser source yields a poissonian distribution even as we vary the power of the CW Laser.
+Furthermore, in figure \ref{fig:photon_counts_spad1_01_0}, a polarizing beam splitter was introduced to measure the curve in low power regime; also resulting in a poissonian distribution.
+The fact that the variance matches the mean ($\sigma^2 \approx \mu$), \footnote{Fano factor defined by $F = \frac{\lambda}{\sigma^2} \approx 1.0$.}, verifies the source as a coherent emitter. \\
+
+\subsection{Non Coherent Light}
+We proceed to switch the light source for a fluorecent light bulb and run the previus experiment with the CW Laser turned off. 
+The resulting super-Poissonian distribution is shown in figure \ref{fig:photon_counts_spad1_lablight}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/photon_counts_spad1_lablight.png}
+    %\rule{0.5\textwidth}{5cm}
+    \caption{Photon counting statistics of the fluorecent lightbulb. The experimental data follows a super-Poisson distribution.}
+    \label{fig:photon_counts_spad1_lablight}
+\end{figure}
+
