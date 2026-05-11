@@ -71,7 +71,7 @@
 \newcommand{\printbibliography}{
   \twocolumn[ 
   \bibliographystyle{apalike}
-  \bibliography{bibliography/mybibfile.bib}
+  \bibliography{bibliography/references.bib}
   ]
 }
 
