@@ -24,7 +24,7 @@ First measurements measure second order coherence at $\tau = 0$ i.e $g^{(2)}(0)$
     \item Check 3, 4 fold correlations $g^{(3)}, g^{(4)}, ...$
 \end{enumerate}
 
-
+\newpage
 \subsubsection{Pulsed Laser Measurements (05.06.2026)}
 Measurement of $g^2(\tau=0)$ where taken with 10 ps resolution with a laser attenuation adjusted to obtain $~2\%$ of total pulses detected by SPADs. 
 Results are summarized in Figure \ref{fig:g2(0)_measurements_80MHz_1MHz_run1}.\\
@@ -61,9 +61,9 @@ These results where obtained in the laboratory session following the detailed st
 
 \begin{itemize}
     \item Connect SPAD A, SPAD B, and Laser Sync to Swabian channel 1,2 and 3 respectively. 
-    \item Measure Power at $100 \mu W$
-    \item Read the Pico-Quant LASER at $36.8\%$ power. 
     \item LASER frequency is configured at $1MHz$. Select internal oscillator\textit{Source: Int2}, and Rep Frequency at \textit{1}.
+    \item Read the Pico-Quant LASER at $36.8\%$ power. 
+    \item Measure Power at $3 \mu W$
     \item Align the LASER to the SPADs active areas. 
     \item Place ND0.6 Filter.
     \item Isolate the system from external light sources.
@@ -109,13 +109,15 @@ These results where obtained in the laboratory session following the detailed st
 \textbf{Aumenting the LASER Frequency} 
 
 \begin{itemize}
+    \item Read the Pico-Quant LASER at $36.8\%$ power. 
     \item LASER frequency is configured at $80MHz$. Select internal oscillator\textit{Source: Int1}, and Rep Frequency at \textit{1}
+    \item Measure Power at $100 \mu W$
     \item Turn Laser On and calibrate cps. 
     \begin{itemize}
         \item Use \texttt{tt.Countrate} to extract average counts-per-second (cps) over $5*10^11$ picoseconds. 
         \item Averaging the previus averages 31 times, we get:
         \begin{itemize}
-            \item Mean SPAD A: 839,914.581 cps
+            \item Mean SPAD A: 839,914.581 cps ($1\%$)
             \item Mean SPAD B: 683,993.507 cps
             \item Mean LASER: 79,999,739.641cps
         \end{itemize}
@@ -134,10 +136,84 @@ These results where obtained in the laboratory session following the detailed st
     \item Reference Results in Figure \ref{fig:g2(0)_measurements_80MHz_1MHz_run1}, right graph.
 \end{itemize}
 
+\newpage
+\subsubsection{Pulsed Laser Measurement (05.15.2026)}
+In Figure \ref{fig:g2(0)_measurements_80MHz_1MHz_run1}, we did not obtain the expected result $g^{(2)}(0)$ we where expecitng. 
+Probably this was die to the low operation power $3 \mu W$. 
+To test this hypotesis, we make a new measurement at $1MHz$ with  $33.5 \mu W$. Results are shown in Figure \ref{fig:g2(0)_measurements_80MHz_1MHz_run2}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Figures/g2(0)_measurements_80MHz_1MHz_run2.png}
+    \caption{$g^2(0)$ measurement detailed in experiment \ref{subsec:CorrVal}.}
+    \label{fig:g2(0)_measurements_80MHz_1MHz_run2}
+\end{figure}
+
+\begin{itemize}
+    \item Connect SPAD A, SPAD B, and Laser Sync to Swabian channel 1,2 and 3 respectively. 
+    \item Read the Pico-Quant LASER at $100\%$ power. 
+    \item LASER frequency is configured at $1MHz$. Select internal oscillator\textit{Source: Int2}, and Rep Frequency at \textit{1}
+    \item Measure Power at $33.63 \mu W$.
+    \item Align the LASER to the SPADs active areas. 
+    %\item Place ND0.6 Filter.
+    \item Isolate the system from external light sources.
+    \item Calibrate. Set baseline for SPAD dark counts and Laser clock. Laser head remains off.  
+    \begin{itemize}
+        \item Use \texttt{tt.Countrate} to extract average counts-per-second (cps) over $5*10^{11}$ picoseconds. 
+        \item Averaging the previus averages 139 times, we get:
+        \begin{itemize}
+            \item Mean SPAD A: (Run 2: 9.252 cps, Run 3: 9.714  cps)
+            \item Mean SPAD B: (Run 2: 9,542.935  cps, Run 3: 9,934.061 cps)
+            \item Mean LASER Sync: (Run 2: 999,996.000 cps, Run 3: 999,995.837 cps)
+        \end{itemize} 
+    \end{itemize}
+    \item Turn Laser On and calibrate cps. 
+    \begin{itemize}
+        \item Use \texttt{tt.Countrate} to extract average counts-per-second (cps) over $5*10^11$ picoseconds. 
+        \item Averaging the previus averages 131 times, we get:
+        \begin{itemize}
+            \item Mean SPAD A: (Run 2: 665,354 cps, Run 3: 670,303.900 cps )($67\%$ of pulses detected)
+            \item Mean SPAD B: (Run 2: 584,594 cps, Run 3: 592,776.250 cps )($59\%$ of pulses detected)
+            \item Mean LASER: 999,996.000 cps
+        \end{itemize}
+    \end{itemize}
+    \item Then, we proceed with the calibration for the optical path differences. We use \texttt{tt.Correlation} function, with $10$ps resolution to find the time differences between two channels and obtained the following results. 
+    \begin{itemize}
+        \item Sync $\rightarrow$ SPAD A Delays:
+        \item[] $ [-10140, -10190 ]$ ps
+        \item Sync $\rightarrow$ SPAD B Delays:
+        \item[] $ [-15160, -15200] $ ps
+        \item SPAD A $\rightarrow$ SPAD B Delay: 
+        \item[] [$ -4910,  -4930 ] $ ps
+        %\item Refer to Figure \ref{fig:optical_path_calibration_1MHz_run1}
+    \end{itemize}
+
+    \item Input delays into Swabian \texttt{tt.setInputDelay(SPAD, delay)}. 
+    \item We observe $g^{(2)}(0)$ value approaches 1 as we would expect. Figure \ref{}
+\end{itemize} 
+
+\textbf{Aumenting the LASER Frequency} 
+\begin{itemize}
+    \item Read the Pico-Quant LASER at $36.8\%$ power. 
+    \item LASER frequency is configured at $80MHz$. Select internal oscillator\textit{Source: Int1}, and Rep Frequency at \textit{1}
+    \item Measure Power at $100 \mu W$
+    \item Turn Laser On and calibrate cps with ND0.6 filter until we reach the $1\%$ domain. 
+    \item We continue the calibration for the optical path differences using the \texttt{tt.Correlation} function, with $10$ps resolution.
+    \begin{itemize}
+        \item Sync $\rightarrow$ SPAD A Delays:
+        \item[] $ [ 1970 ]$ ps
+        \item Sync $\rightarrow$ SPAD B Delays:
+        \item[] $ [-3050 ] $ ps
+        \item SPAD A $\rightarrow$ SPAD B Delay: 
+        \item[] $[-4930] $ ps
+    \end{itemize}
+    \item Proceed with $g^{(2)}(0)$ measurement and obtained the results shown in Figure \ref{}.
+\end{itemize}
+
 As a secondary result, we extract the system jitter from the Figures \ref{fig:optical_path_calibration_1MHz_run1} and \ref{fig:optical_path_calibrated_1MHz_run1}. 
-The results are summarized in Figure \ref{fig:jitter_run1}.
+As shown in Figure \ref{fig:jitter_run1}, jitter values for SPAD A and B are $181.4 \&  152.1$ respectively. 
 
-
+\newpage
 \subsection{Correlation Function}
 Second measurements designed to extract the second order cohrence function $g^{(2)}(\tau)$.
 
@@ -152,6 +228,7 @@ We expect $g^{(2)}(0) = 1$ with a comb structure for the Pulsed Laser.
 In contrast, for thermal sources, $1 < g^{(2)}(0) \leq 2$ and decays over coherence times. 
 The width of this decay is a measure of the coherence time \footnote{Set by the diffuser speed}.
 
+\newpage
 \subsubsection{Pulsed Laser Measurements (05.06.2026)}
 Results are summarized in Figure \ref{fig:g2(tau)_measurement_80MHz_bin50ps}.
 
@@ -161,3 +238,56 @@ Results are summarized in Figure \ref{fig:g2(tau)_measurement_80MHz_bin50ps}.
     \caption{Autocorrelation function measurement. }
     \label{fig:g2(tau)_measurement_80MHz_bin50ps}
 \end{figure}
+
+A similar result can be obtained for the $1MHz$ signal with its characteristic period shown in Figure \ref{fig:g2(tau)_measurement_1MHz_bin10ps}. \\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Figures/g2(tau)_measurement_1MHz_bin10ps.png}
+    \caption{Autocorrelation function measurement. }
+    \label{fig:g2(tau)_measurement_1MHz_bin10ps}
+\end{figure}
+
+However, both figures fail to quantify the normalized $g^{(2)}$ because the normalization is taking into account the secondary peaks.
+However, when we adjust the temporal window of the correlation analisis, we recorver the results expected as discussed in \ref{subsec:CorrVal}. 
+Refer to Figures \ref{fig:g2(tau)_measurement_1MHz_bin1000000ps} and \ref{fig:g2(tau)_measurement_80MHz_bin12500ps}.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Figures/g2(tau)_measurement_1MHz_bin10000000ps.png}
+    \caption{Autocorrelation function measurement. }
+    \label{fig:g2(tau)_measurement_1MHz_bin1000000ps}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Figures/g2(tau)_measurement_80MHz_bin12500ps.png}
+    \caption{Autocorrelation function measurement. }
+    \label{fig:g2(tau)_measurement_80MHz_bin12500ps}
+\end{figure}
+
+
+Next we turn the atention to the thermal sources. 
+We shine a thermal lamp into the SPAD and obtain its correlation function.
+\begin{itemize}
+    \item Place 2.3 ND filter over the SPAD
+    \item Turn on the Thermal Lamp or the Laboratory Light. 
+    \item Measure cps: 1,000,000 
+    \item Measure $G^{(2)}, g^{(2)}$ 
+    \item Repeat for increasing cps. 
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Figures/g2(tau)_measurement_ThermalLamp_1000kcp_bin10ps.png}
+    \caption{Autocorrelation function measurement. }
+    \label{fig:g2(tau)_measurement_ThermalLamp_1000kcp_bin10ps.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Figures/g2(tau)_measurement_LabLight_1000kcp_bin10ps.png}
+    \caption{Autocorrelation function measurement. }
+    \label{fig:g2(tau)_measurement_LabLight_1000kcp_bin10ps.png}
+\end{figure}
+
+We observe that lower cps, increase the signal to noise ratio. 
