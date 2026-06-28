@@ -1,4 +1,4 @@
-\subsection{First Measurement Plan}
+\subsection{1st Measurement: HBT}
 \label{subsec:CorrVal}
 First measurements measure second order coherence at $\tau = 0$ i.e $g^{(2)}(0)$. The procedure is given bellow. 
 \begin{enumerate}
@@ -23,6 +23,9 @@ First measurements measure second order coherence at $\tau = 0$ i.e $g^{(2)}(0)$
     \end{itemize}
     \item Check 3, 4 fold correlations $g^{(3)}, g^{(4)}, ...$
 \end{enumerate}
+
+This measurement configuration---cross-correlating the digital timestamps from two independent SPAD pixels to extract the intensity fluctuations---operates as a Hanbury Brown and Twiss (HBT) intensity interferometer \cite{hanbury1956correlation}. 
+By utilizing two distinct spatial channels, the setup measures coincident photon arrivals at zero temporal delay ($g^{(2)}(0)$).
 
 \newpage
 \subsubsection{Pulsed Laser Measurements (05.06.2026)}
@@ -53,7 +56,7 @@ These results where obtained in the laboratory session following the detailed st
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width = 0.6\textwidth]{Figures/jitter_run1.png}
+    \includegraphics[width = 0.5\textwidth]{Figures/jitter_run1.png}
     \caption{Optical Setup Jitter made up of Swabian, LASER $\&$ SPAD.}
     \label{fig:jitter_run1}
 \end{figure}
@@ -162,7 +165,7 @@ As a secondary result, we extract the system jitter from the Figures \ref{fig:op
 As shown in Figure \ref{fig:jitter_run1}, jitter values for SPAD A and B are $181.4 \&  152.1$ respectively. 
 
 \newpage
-\subsection{Second Measurement Plan}
+\subsection{2nd Measurement: $g^{(2)}(\tau)$}
 Second measurements designed to extract the second order cohrence function $g^{(2)}(\tau)$.
 
 \begin{enumerate}
@@ -172,11 +175,15 @@ Second measurements designed to extract the second order cohrence function $g^{(
     \item Normalize histogram by the average count of the time bins far from $\tau  = 0$ to get $g^{(2)}(\tau)$. 
 \end{enumerate}
 
-We expect $g^{(2)}(0) = 1$ with a comb structure for the Pulsed Laser. 
+For the Pulsed Laser we expect to see two behaviours depending on the programed binwidth: 
+\begin{itemize}
+    \item If \textit{binwidth} is matches the period of the pulsed laser we expect $g^{(2)}(0) = 1$.
+    \item If \textit{binwidth} is shorter than the period of the pulsed laser, we expect a comb structure.
+\end{itemize}
+
 In contrast, for thermal sources, $1 < g^{(2)}(0) \leq 2$ and decays over coherence times. 
 The width of this decay is a measure of the coherence time \footnote{Set by the diffuser speed}.
 
-\newpage
 \subsubsection{Pulsed Laser Measurements (05.06.2026)}
 Results are summarized in Figure \ref{fig:g2(tau)_measurement_80MHz_bin50ps}.
 
@@ -228,6 +235,8 @@ The corrected measurement, successfully eliminating the binning artifacts, is pr
     \label{fig:g2(tau)_measurement_corrected_final}
 \end{figure}
 
+While setting the correlation bin width equal to the laser's repetition period yields a flat $g^{(2)}(\tau) = 1.0$ response, this must not be misinterpreted as continuous Poissonian emission. 
+Rather, it is a temporal integration artifact where each macroscopic bin perfectly envelopes exactly one discrete pulse.
 
 Next we turn the atention to the thermal sources. 
 We shine a thermal lamp into the SPAD and obtain its correlation function.
@@ -253,4 +262,49 @@ We shine a thermal lamp into the SPAD and obtain its correlation function.
     \label{fig:g2(tau)_measurement_LabLight_1000kcp_bin10ps.png}
 \end{figure}
 
-We observe that lower cps, decrease the signal to noise ratio. 
+Note the oscillatory peak near $\tau = 0$ spanning approximately $\pm 10$ ns in figures \ref{fig:g2(tau)_measurement_LabLight_1000kcp_bin10ps.png} and \ref{fig:g2(tau)_measurement_ThermalLamp_1000kcp_bin10ps.png}). 
+This does not represent quantum thermal bunching, which theoretically decorrelates on a femtosecond timescale. 
+Instead, we suggest that its a hardware artifact inherent to dense SPAD arrays, caused by a combination of optical crosstalk (hot-carrier luminescence between adjacent pixels). 
+Outside of this nanosecond hardware interference window, the correlation function correctly rests at a flat baseline of $g^{(2)}(\tau) = 1.0$, confirming the system's inability to resolve ultrafast thermal statistics.
+
+
+\subsection{Third Measurement Plan: Diffuse Correlation Spectroscopy}
+
+As seen in the second measurement, true thermal light decorrelates in femtoseconds, which is too fast for the SPAD dead-time to measure. To solve this, we built a ``pseudothermal'' light source to successfully measure photon bunching. We shined a 785 nm continuous-wave (CW) laser through a rotating diffuser to create a moving speckle pattern. By changing the motor speed, we artificially slow down the light's intensity fluctuations to the millisecond regime, allowing our Time Tagger to capture it.
+
+The measurement procedure was as follows:
+\begin{enumerate}
+    \item A 785 nm CW laser was aligned to hit the outer edge of a rotating diffuser.
+    \item The linear SPAD array was placed 0.5 cm behind the diffuser to detect the speckles.
+    \item To avoid hardware buffer overflow from high count rates, we lowered the laser intensity to a safe kilocounts-per-second (kcps) level.
+    \item To recover the Signal-to-Noise Ratio (SNR), we simultaneously measured the autocorrelation of 11 separate pixels to average them together.
+    \item The measurement was repeated for different diffuser angular velocities (5, 10, 15, and 20 deg/s).
+\end{enumerate}
+
+\textbf{Results} \\
+To process the data, each pixel's measurement was normalized by dividing it by its flat baseline. Figure \ref{fig:dcs_average_fit} shows the 11 individual pixels (faded) and their combined average (black). Averaging the pixels gives a much smoother exponential decay curve, allowing us to accurately fit the data and extract the decorrelation time ($\tau_c$). 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/average11_decorrelation_spectroscopy.png}
+    \caption{Normalized autocorrelation measurement for the rotating diffuser. The black line is the average of 11 pixels, which is fitted with an exponential curve (red dashed line) to extract $\tau_c$.}
+    \label{fig:dcs_average_fit}
+\end{figure}
+
+Figure \ref{fig:spatial_averaging} demonstrates why using the 11-pixel array is so powerful. As we average more pixels ($N$), the measured decorrelation time remains stable, but the baseline noise drops follows the theoretical $1/\sqrt{N}$ rule. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/averageeffect_decorrelation_spectroscopy.png}
+    \caption{Effect of averaging multiple pixels. The measured $\tau_c$ remains stable (Left), while the noise drops with $1/\sqrt{N}$ (Right).}
+    \label{fig:spatial_averaging}
+\end{figure}
+
+Finally, Figure \ref{fig:velocity_sweep} plots the extracted $\tau_c$ against the different motor speeds. As the diffuser spins faster, the speckles move past the detector faster, causing the decorrelation time to drop. This inverse relationship successfully validates our Diffuse Correlation Spectroscopy measurement.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/average11_decorrelation_spectroscopy_differentspeeds.png}
+    \caption{Decorrelation time ($\tau_c$) measured at different diffuser speeds. As angular velocity increases, $\tau_c$ proportionally decreases.}
+    \label{fig:velocity_sweep}
+\end{figure}

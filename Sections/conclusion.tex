@@ -1,7 +1,9 @@
+This work demonstrated the use of Single Photon Avalanche Diodes (SPADs) and Time-Correlated Single Photon Counting (TCSPC) to measure the second-order coherence function, $g^{(2)}(\tau)$, of various light sources. 
+By characterizing the detector hardware, the statistical differences between coherent lasers and super-Poissonian pseudothermal sources were discussed.
 
-This project established an experimental framework to characterize Single Photon Avalanche Diodes (SPADs) and classify the statistical properties of various light sources.
-Hardware baselining accurately quantified intrinsic detector parameters, including dark count rate, dead time, afterpulsing, and jitter.
-The setup successfully validated expected Poissonian distributions for coherent lasers and super-Poissonian distributions for thermal sources.
-Time-Correlated Single Photon Counting (TCSPC) enabled precise second-order coherence ($g^{(2)}$) measurements to further differentiate emission regimes.
-Careful optical path calibration ensured high-resolution detection of true coincidence events.
-Ultimately, this methodology accurately captured intrinsic source statistics while accounting for detector artifacts, clearly distinguishing between classical and non-classical light.
+The measurement of true thermal emission (fluorescent lab light) highlighted the fundamental temporal limits of the detector architecture. 
+The femtosecond decorrelation times of broad-bandwidth sources were shown to be entirely averaged out by the nanosecond dead-time and jitter of the SPADs, with any residual signal at zero-delay attributed to electronic and optical crosstalk between adjacent pixels rather than quantum photon bunching.
+
+To bypass these ultrafast hardware limitations, a Diffuse Correlation Spectroscopy (DCS) setup was implemented. 
+By scattering a continuous-wave laser through a rotating diffuser, chaotic phase fluctuations were artificially slowed into the millisecond regime, allowing the TCSPC hardware to accurately capture the exponential decorrelation of the dynamic speckle pattern. Furthermore, leveraging the linear SPAD array through multi-pixel spatial averaging proved highly effective in reducing baseline measurement noise without requiring extreme count rates.
+Ultimately, this methodology captured the dynamic photon statistics, accounted for detector artifacts, and successfully linked the extracted decorrelation times to the kinematic properties of the macroscopic target.

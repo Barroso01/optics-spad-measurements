@@ -1,7 +1,7 @@
 \documentclass{document_layout}
 
 % Title and author information 
-\title{SPAD Measurements}
+\title{MEASUREMENTS OF LIGHT STATISTICS WITH SPADs}
 \author{
     Eduardo Barroso\address{1} \quad Eikin Kizilkan\address{1} \quad Utku Karaca \address{2} \\[1em]
     \address{1} \textit{École Polytechnique Fédérale de Lausanne (EPFL)} \\
@@ -10,11 +10,10 @@
 \date{\today}
 
 %Abstract 
-\setabstract{This report documents the experimental 
-setup for the characterization of Single Photon Avalanche Diodes (SPADs). 
-The objective is to classify different light sources by performing coincidence detection experiments. 
-Measurements are conducted using distinct light sources such as pulsed lasers, continous lasers, and pseudo-thermal light source. 
-Throught the document, the hardware, optical setups, and results are presented to the reader.}
+\setabstract{This report documents the experimental characterization of Single Photon Avalanche Diodes (SPADs) 
+and their application in classifying light sources via coincidence detection. 
+Measurements are conducted using pulsed lasers, and pseudothermal light sources. 
+Throughout the document, the hardware calibration, optical setups, and resulting photon statistics are presented.}
 
 % Begin the document
 \begin{document}
@@ -32,6 +31,7 @@ Throught the document, the hardware, optical setups, and results are presented t
 \section*{Layout and Hardware Calibration}
 \input{sections/layout-calibration.tex}
 
+\newpage
 \section*{Poissonian Statistics Verification}
 \input{Sections/poisson.tex}
 
@@ -39,6 +39,7 @@ Throught the document, the hardware, optical setups, and results are presented t
 \section*{Coincidence Measurements}
 \input{Sections/exp_coincidences.tex}
 
+\newpage 
 \section*{Conclusion}
 \input{Sections/conclusion}
 
