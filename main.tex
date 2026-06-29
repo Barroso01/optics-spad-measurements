@@ -10,10 +10,9 @@
 \date{\today}
 
 %Abstract 
-\setabstract{This report documents the experimental characterization of Single Photon Avalanche Diodes (SPADs) 
-and their application in classifying light sources via coincidence detection. 
-Measurements are conducted using pulsed lasers, and pseudothermal light sources. 
-Throughout the document, the hardware calibration, optical setups, and resulting photon statistics are presented.}
+\setabstract{This report documents the experimental characterization of Single Photon Avalanche Diodes (SPADs) and their application in classifying light sources via coincidence detection. 
+Measurements utilizing pulsed lasers and pseudothermal sources extract photon statistics and validate Diffuse Correlation Spectroscopy (DCS). 
+Throughout the document, hardware calibration, optical setups, and speckle decorrelation results are presented.}
 
 % Begin the document
 \begin{document}
@@ -21,31 +20,43 @@ Throughout the document, the hardware calibration, optical setups, and resulting
 \maketitle
     
 \section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
 \input{Sections/introduction}
 
 \newpage
+\onecolumn
+\tableofcontents
+\twocolumn
+
+\newpage
 \section*{Equipment and Materials}
+\addcontentsline{toc}{section}{Equipment and Materials}
 \input{Sections/materials} 
 
 \newpage
 \section*{Layout and Hardware Calibration}
+\addcontentsline{toc}{section}{Layout and Hardware Calibration}
 \input{sections/layout-calibration.tex}
 
 \newpage
 \section*{Poissonian Statistics Verification}
+\addcontentsline{toc}{section}{Poissonian Statistics Verification}
 \input{Sections/poisson.tex}
 
 \newpage
 \section*{Coincidence Measurements}
+\addcontentsline{toc}{section}{Coincidence Measurements}
 \input{Sections/exp_coincidences.tex}
 
 \newpage 
 \section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
 \input{Sections/conclusion}
 
 % References
 \onecolumn
 \printbibliography
+\addcontentsline{toc}{section}{References}
 \twocolumn
 
 \end{document} 
