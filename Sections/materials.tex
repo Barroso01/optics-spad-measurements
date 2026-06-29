@@ -1,42 +1,42 @@
-\subsection*{Facilities}
-\begin{center}
-    \begin{tabular}{ |c|c|c| }
-        \hline
-        Room      &  Description &  Notes     \\
-        MC A3 153 &  Optics Lab    &  CW       \\
-        %MC A3 193 & Rad/Optics Lab & Pulsed Laser \\
-        \hline
-    \end{tabular}
-\end{center}
+%\subsection*{Facilities}
+% \begin{center}
+%     \begin{tabular}{ |c|c|c| }
+%         \hline
+%         Room      &  Description &  Notes     \\
+%         MC A3 153 &  Optics Lab    &  CW       \\
+%         %MC A3 193 & Rad/Optics Lab & Pulsed Laser \\
+%         \hline
+%     \end{tabular}
+% \end{center}
 
 
 \subsection*{Lasers and Light Sources}
 \begin{itemize}
     \item Pulsed LASER:  PicoQuant PDL Series
     \begin{itemize}\footnotesize
-        \item \textbf{Optical Head:} PicoQuant Laser Diode Head
+        \item \textbf{PicoQuant Laser Diode Head}
         \item \textbf{Wavelength:} 640 nm
-        \item \textbf{Repetition Rate ($f_{rep}$):} Tunable discrete frequencies (operated between 1 MHz and 40 MHz).
-        \item \textbf{Emission Profile:} Picosecond pulsed regime.
+        \item \textbf{Repetition Rate ($f_{rep}$):} Tunable frequencies (operated between 1 MHz and 80 MHz).
     \end{itemize}
-    %\item Pulsed LASER: \textbf{\href{https://www.nktphotonics.com/products/femtosecond-lasers/origami-accessories/}{NKT Photonics}}
-    %\begin{itemize}\footnotesize
-    %    \item Model: [Origami XP / Origami HP] (Femtosecond)
-    %    \item Wavelength: [ ] nm 
-    %    \item Pulse Duration: [ ] fs
-    %    \item Repetition Rate: 50 MHz
-    %\end{itemize}
     
-    %\item \textbf{Continuous Wave (CW) LASER }
-    %\begin{itemize}\footnotesize
-    %    \item \textbf{Brand / Model:} Thorlabs S1FC660 (Fiber-coupled)
-    %    \item \textbf{Wavelength:} 660 nm
-    %    \item \textbf{Operating Power:} Analog tunable from 0 mW up to a maximum output of 19.8 mW.
-    %\end{itemize}
+    \item \textbf{Continuous Wave (CW) LASER 1}
+    \begin{itemize}\footnotesize
+       \item \textbf{Thorlabs S1FC660 (Fiber-coupled)}
+       \item \textbf{Wavelength:} 660 nm
+       \item \textbf{Power:} Tunable from 0 mW to 19.8 mW
+    \end{itemize}
+
+    \item \textbf{Continuous Wave (CW) LASER 2}
+    \begin{itemize}\footnotesize
+        \item Thorlabs Benchtop Laser Diode Controller with mounted laser diode head.
+        \item \textbf{Wavelength:} 785 nm
+        \item \textbf{Power:} Tunable diode current (between 62.7 mA and 65.5 mA)
+    \end{itemize}
+
     \item \textbf{Pseudothermal Light Simulator}
     \begin{itemize}\footnotesize
-        \item Components: Rotating ground glass diffuser and pinhole aperture.
-        \item Diffuser Motor Speed [$20 \circ /s$ ]
+        \item Rotating glass diffuser (K10CR1/M). Motor Speed up to $20^\circ /s$. 
+        \item Continuous Wave (CW) LASER 2
     \end{itemize}
 \end{itemize}
 
@@ -49,7 +49,6 @@
         \item Max Input Frequency: 475 MHz
         \item Dead Time: 2.1 ns
         \item Base Jitter: \href{https://www.swabianinstruments.com/static/downloads/TimeTaggerSeries.pdf}{42 ps RMS (100 ps FWHM)}
-        \item Physical Inputs: 4 (50 $\Omega$ impedance)
         \item Trigger Level Range: -2.5 V to +2.5 V
     \end{itemize}
     
@@ -57,20 +56,17 @@
 
 \subsection*{Detectors and Optical Components}
 \begin{itemize}
-    \item \textbf{SPAD Module}
+    \item \textbf{2 Pixel SPAD Module}
     \begin{itemize}\footnotesize
-        \item Model: NV02TPX
+        \item Model: \href{https://novoviz.com/two-pixel-correlator/}{NV02TPX}
         \item 64 bins of up to $5 ns$ width
     \end{itemize}
-    
-    \item \textbf{Neutral Density (ND) Filters}
+
+    \item \textbf{Linear SPAD Array Module}
     \begin{itemize}\footnotesize
-        \item Optical Density (OD) values applied: [0.6, 2.3]
+        \item \textbf{Model:} \href{https://novoviz.com/small-line/}{Novoviz Small Line Sensor}
+        \item \textbf{Architecture:} 24-pixel linear SPAD array
     \end{itemize}
     
-    \item \textbf{Connectivity}
-    \begin{itemize}\footnotesize
-        \item SMA Cables (50 $\Omega$ impedance) 
-        \item \href{https://www.thorlabs.com/item/SM1FC2}{SM1 FC2} (Fiber to Free Space Coupling)
-    \end{itemize}
+    \item \textbf{Neutral Density Filters}: 0.6, 2.3
 \end{itemize}

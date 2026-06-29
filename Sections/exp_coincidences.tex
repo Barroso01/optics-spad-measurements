@@ -2,10 +2,10 @@
 \label{subsec:CorrVal}
 First measurements measure second order coherence at $\tau = 0$ i.e $g^{(2)}(0)$. The procedure is given bellow. 
 \begin{enumerate}
-    \item Feed the Pulsed Laser into the optical setup in figure \ref{fig:exp_lay}. 
-    \item Select a Laser frequency: $1/T_{dead} \approx 2\cdot10^8 = 200 MHz$  . 
+    \item Feed the Pulsed LASER into the optical setup in figure \ref{fig:exp_lay}. 
+    \item Select a LASER frequency: $1/T_{dead} \approx 2\cdot10^8 = 200 MHz$  . 
     \item Select Exposure Time. 
-    \item Connect Laser Sync and SPAD channels into the time tagger. 
+    \item Connect LASER Sync and SPAD channels into the time tagger. 
     \item Measure timestamps of detection events. 
     \item Compare Channel Ticks. 
     \begin{itemize}
@@ -28,8 +28,8 @@ This measurement configuration---cross-correlating the digital timestamps from t
 By utilizing two distinct spatial channels, the setup measures coincident photon arrivals at zero temporal delay ($g^{(2)}(0)$).
 
 \newpage
-\subsubsection{Pulsed Laser Measurements (05.06.2026)}
-Measurement of $g^2(\tau=0)$ where taken with 10 ps resolution with a laser attenuation adjusted to obtain $~2\%$ of total pulses detected by SPADs. 
+\subsubsection{Pulsed LASER Measurements (05.06.2026)}
+Measurement of $g^2(\tau=0)$ where taken with 10 ps resolution with a LASER attenuation adjusted to obtain $~2\%$ of total pulses detected by SPADs. 
 Results are summarized in Figure \ref{fig:g2(0)_measurements_80MHz_1MHz_run1}.\\
 \begin{figure}[H]
     \centering
@@ -62,7 +62,7 @@ These results where obtained in the laboratory session following the detailed st
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Hardware Setup:} Connect SPAD A, SPAD B, and Laser Sync to Swabian channels 1, 2, and 3 respectively. Align the LASER to the SPAD active areas, insert the ND0.6 filter, and isolate the system from external light.
+    \item \textbf{Hardware Setup:} Connect SPAD A, SPAD B, and LASER Sync to Swabian channels 1, 2, and 3 respectively. Align the LASER to the SPAD active areas, insert the ND0.6 filter, and isolate the system from external light.
     \item \textbf{1 MHz Configuration:} LASER configured to $1\text{ MHz}$ (\textit{Source: Int2}, \textit{Rep Frequency: 1}) at 36.8\% power. Measured optical power is $3\ \mu\text{W}$.
     \item \textbf{80 MHz Configuration:} LASER configured to $80\text{ MHz}$ (\textit{Source: Int1}, \textit{Rep Frequency: 1}) at 36.8\% power. Measured optical power is $100\ \mu\text{W}$.
     \item \textbf{Count Rate Calibration:} Averaged over $5 \times 10^{11}\text{ ps}$ using the \texttt{tt.Countrate} function. The baseline dark counts (LASER off) and active detections are summarized in Table \ref{tab:count_rates}.
@@ -78,11 +78,11 @@ These results where obtained in the laboratory session following the detailed st
     \resizebox{\columnwidth}{!}{%
     \begin{tabular}{@{}lccc@{}}
         \toprule
-        \textbf{State} & \textbf{SPAD A} & \textbf{SPAD B} & \textbf{LASER Sync} \\
+        \textbf{State} & \textbf{SPAD A cps} & \textbf{SPAD B cps} & \textbf{LASER cps} \\
         \midrule
-        Baseline (Laser Off) & 9.9 & 9,816.9 & 999,996.0 \\
-        1 MHz (Laser On) & 26,262.8 (2.6\%) & 30,842.6 (3.0\%) & 999,995.8 \\
-        80 MHz (Laser On) & 839,914.6 (1.0\%) & 683,993.5 & 79,999,739.6 \\
+        Dark Counts (LASER Off) & 9.9 & 9,816.9 & 999,996.0 \\
+        1 MHz (LASER On) & 26,262.8  & 30,842.6 & 999,995.8 \\
+        80 MHz (LASER On) & 839,914.6 & 683,993.5 & 79,999,739.6 \\
         \bottomrule
     \end{tabular}%
     }
@@ -105,7 +105,7 @@ These results where obtained in the laboratory session following the detailed st
 \end{table}
 
 \newpage
-\subsubsection{Pulsed Laser Measurement (05.15.2026)}
+\subsubsection{Pulsed LASER Measurement (05.15.2026)}
 In Figure \ref{fig:g2(0)_measurements_80MHz_1MHz_run1}, we did not obtain the expected result $g^{(2)}(0)$ we where expecitng. 
 Probably this was due to the low operation power $3 \mu W$. 
 To test this hypotesis, we make a new measurement at $1MHz$ with  $33.5 \mu W$. Results are shown in Figure \ref{fig:g2(0)_measurements_80MHz_1MHz_run2}.
@@ -118,7 +118,7 @@ To test this hypotesis, we make a new measurement at $1MHz$ with  $33.5 \mu W$. 
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Hardware Setup:} Connect SPAD A, SPAD B, and Laser Sync to Swabian channels 1, 2, and 3 respectively. Align the LASER to the active areas and isolate the system from external light.
+    \item \textbf{Hardware Setup:} Connect SPAD A, SPAD B, and LASER Sync to Swabian channels 1, 2, and 3 respectively. Align the LASER to the active areas and isolate the system from external light.
     \item \textbf{1 MHz Configuration (High Power):} LASER configured to $1\text{ MHz}$ (\textit{Source: Int2}, \textit{Rep Frequency: 1}) at 100\% power. Measured optical power is $33.63\ \mu\text{W}$.
     \item \textbf{80 MHz Configuration:} LASER configured to $80\text{ MHz}$ (\textit{Source: Int1}, \textit{Rep Frequency: 1}) at 36.8\% power. Measured optical power is $100\ \mu\text{W}$. An ND0.6 filter is applied to throttle the active counts into the $\approx 1\%$ detection domain.
     \item \textbf{Count Rate Calibration:} Averages extracted using \texttt{tt.Countrate} over $5 \times 10^{11}\text{ ps}$. The baseline dark counts and active detections for the multi-run 1 MHz measurements are summarized in Table \ref{tab:count_rates_high_power}.
@@ -133,12 +133,12 @@ To test this hypotesis, we make a new measurement at $1MHz$ with  $33.5 \mu W$. 
     \resizebox{\columnwidth}{!}{%
     \begin{tabular}{@{}lccc@{}}
         \toprule
-        \textbf{State} & \textbf{SPAD A} & \textbf{SPAD B} & \textbf{LASER Sync} \\
+        \textbf{State} & \textbf{SPAD A cps} & \textbf{SPAD B cps} & \textbf{LASER cps} \\
         \midrule
-        Baseline (Run 2) & 9.3 & 9,542.9 & 999,996.0 \\
-        Baseline (Run 3) & 9.7 & 9,934.1 & 999,995.8 \\
-        Active (Run 2)   & 665,354.0 & 584,594.0 & 999,996.0 \\
-        Active (Run 3)   & 670,303.9 (67\%) & 592,776.3 (59\%) & 999,996.0 \\
+        Dark Counts & 9.3 & 9,542.9 & 999,996.0 \\
+        %Baseline (Run 3) & 9.7 & 9,934.1 & 999,995.8 \\
+        1 MHz (LASER On)  & 665,354.0 & 584,594.0 & 999,996.0 \\
+        %1 MHz (LASER On) (Run 3)  & 670,303.9 (67\%) & 592,776.3 (59\%) & 999,996.0 \\
         \bottomrule
     \end{tabular}%
     }
@@ -169,28 +169,29 @@ As shown in Figure \ref{fig:jitter_run1}, jitter values for SPAD A and B are $18
 Second measurements designed to extract the second order cohrence function $g^{(2)}(\tau)$.
 
 \begin{enumerate}
-    \item Feed the Pulsed Laser into the optical setup in figure \ref{fig:exp_lay}. 
-    \item Select a Laser frequency: $1/T_{dead} \approx 2\cdot10^8 = 200 MHz$.
+    \item Feed the Pulsed LASER into the optical setup in figure \ref{fig:exp_lay}. 
+    \item Select a LASER frequency: $1/T_{dead} \approx 2\cdot10^8 = 200 MHz$.
     \item Build Histogram of $G^{(2)}(\tau)$
     \item Normalize histogram by the average count of the time bins far from $\tau  = 0$ to get $g^{(2)}(\tau)$. 
 \end{enumerate}
 
-For the Pulsed Laser we expect to see two behaviours depending on the programed binwidth: 
+For the Pulsed LASER we expect to see two behaviours depending on the programed binwidth: 
 \begin{itemize}
-    \item If \textit{binwidth} is matches the period of the pulsed laser we expect $g^{(2)}(0) = 1$.
-    \item If \textit{binwidth} is shorter than the period of the pulsed laser, we expect a comb structure.
+    \item If \texttt{binwidth} is matches the period of the pulsed LASER we expect $g^{(2)}(0) = 1$.
+    \item If \texttt{binwidth} is shorter than the period of the pulsed LASER, we expect a comb structure.
 \end{itemize}
 
 In contrast, for thermal sources, $1 < g^{(2)}(0) \leq 2$ and decays over coherence times. 
 The width of this decay is a measure of the coherence time \footnote{Set by the diffuser speed}.
 
-\subsubsection{Pulsed Laser Measurements (05.06.2026)}
-Results are summarized in Figure \ref{fig:g2(tau)_measurement_80MHz_bin50ps}.
+\subsubsection{Pulsed LASER Measurements (05.06.2026)}
+Results are summarized in Figures \ref{fig:g2(tau)_measurement_corrected_final} and \ref{fig:g2(tau)_measurement_LabLight_1000kcp_bin10ps.png}.
+Each figure comprises three subplots illustrating the data processing pipeline: the raw coincidence histogram $G^{(2)}(\tau)$ (grey), the correlation normalized via the Swabian API $g_{\text{swabian}}^{(2)}(\tau)$ (blue), and the manually normalized correlation $g_{\text{python}}^{(2)}(\tau)$ (red).
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.5\textwidth]{Figures/g2(tau)_measurement_80MHz_bin50ps.png}
-    \caption{Autocorrelation function measurement. }
+    \caption{Autocorrelation function measurement for the LASER operating at $80MHz$ with its respective period of $12,500 ps$. }
     \label{fig:g2(tau)_measurement_80MHz_bin50ps}
 \end{figure}
 
@@ -198,13 +199,13 @@ A similar result can be obtained for the $1MHz$ signal with its characteristic p
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.5\textwidth]{Figures/g2(tau)_measurement_1MHz_bin10ps.png}
-    \caption{Autocorrelation function measurement. }
+    \caption{Autocorrelation function measurement for the LASER operating at $1MHz$ with its respective period of $1,000,000 ps$.}
     \label{fig:g2(tau)_measurement_1MHz_bin10ps}
 \end{figure}
 
-However, both figures fail to quantify the normalized $g^{(2)}$ because the normalization is taking into account the secondary peaks.
-However, when we adjust the temporal window of the correlation analisis, we recorver the results expected as discussed in \ref{subsec:CorrVal}. 
-Refer to Figures \ref{fig:g2(tau)_measurement_1MHz_bin1000000ps} and \ref{fig:g2(tau)_measurement_80MHz_bin12500ps}.\\
+Figures \ref{fig:g2(tau)_measurement_80MHz_bin50ps} and \ref{fig:g2(tau)_measurement_1MHz_bin10ps} are indicators that our setup is measuring the intended correlations.
+Note they are not properly normalized $g^{(2)}$ because the normalization is taking into account the secondary peaks.
+However, when we taylor the \texttt{binwidth} of the correlation function to match the LASER period, we observe a flat baseline (Figures \ref{fig:g2(tau)_measurement_1MHz_bin1000000ps} and \ref{fig:g2(tau)_measurement_80MHz_bin12500ps}).\\
 
 \begin{figure}[H]
     \centering
@@ -223,7 +224,7 @@ Refer to Figures \ref{fig:g2(tau)_measurement_1MHz_bin1000000ps} and \ref{fig:g2
 
 Despite measuring the expected baseline in figures \ref{fig:g2(tau)_measurement_1MHz_bin1000000ps} and \ref{fig:g2(tau)_measurement_80MHz_bin12500ps}, 
 they exhibit a severe quantization artifact: the digital Bin 0 overcounts, and consequently, Bin -1 significantly undercounts. 
-This issue arises because the digital bin width is centered arround 0 (i.e $\tau_{bin0} = [-1/2f_{Laser}, +1/2f_{Laser}]$ rather than $\tau_{bin0} = [0, +1/f_{Laser}]$ ).
+This issue arises because the digital bin width is centered arround 0 (i.e $\tau_{bin0} = [-1/2f_{LASER}, +1/2f_{LASER}]$ rather than $\tau_{bin0} = [0, +1/f_{LASER}]$ ).
 To resolve this bin-edge quantization error, an artificial hardware offset equal to exactly half the bin width was introduced via the input delays. 
 This offset physically shifts the photon arrival times such that the coincidence peak lands dead-center inside Bin 0, safely away from the edges. 
 The corrected measurement, successfully eliminating the binning artifacts, is presented in Figure \ref{fig:g2(tau)_measurement_corrected_final}.
@@ -235,9 +236,10 @@ The corrected measurement, successfully eliminating the binning artifacts, is pr
     \label{fig:g2(tau)_measurement_corrected_final}
 \end{figure}
 
-While setting the correlation bin width equal to the laser's repetition period yields a flat $g^{(2)}(\tau) = 1.0$ response, this must not be misinterpreted as continuous Poissonian emission. 
+While setting the correlation bin width equal to the LASER's repetition period yields a flat $g^{(2)}(\tau) = 1.0$ response, this must not be misinterpreted as continuous Poissonian emission. 
 Rather, it is a temporal integration artifact where each macroscopic bin perfectly envelopes exactly one discrete pulse.
 
+\subsubsection{Thermal Source Measurements (05.12.2026)}
 Next we turn the atention to the thermal sources. 
 We shine a thermal lamp into the SPAD and obtain its correlation function.
 \begin{itemize}
@@ -268,15 +270,24 @@ Instead, we suggest that its a hardware artifact inherent to dense SPAD arrays, 
 Outside of this nanosecond hardware interference window, the correlation function correctly rests at a flat baseline of $g^{(2)}(\tau) = 1.0$, confirming the system's inability to resolve ultrafast thermal statistics.
 
 
-\subsection{Third Measurement Plan: Diffuse Correlation Spectroscopy}
+\subsection{3rd Measurement: Diffuse Correlation Spectroscopy}
 
-As seen in the second measurement, true thermal light decorrelates in femtoseconds, which is too fast for the SPAD dead-time to measure. To solve this, we built a ``pseudothermal'' light source to successfully measure photon bunching. We shined a 785 nm continuous-wave (CW) laser through a rotating diffuser to create a moving speckle pattern. By changing the motor speed, we artificially slow down the light's intensity fluctuations to the millisecond regime, allowing our Time Tagger to capture it.
+As seen in the second measurement, true thermal light decorrelates in femtoseconds, which is too fast for the SPAD dead-time to measure. 
+To solve this, we built a pseudo-thermal light source to measure photon bunching. 
+We shined a 785 nm continuous-wave (CW) LASER through a rotating diffuser to create a moving speckle pattern.
+By changing the motor speed, we artificially slow down the light's intensity fluctuations to the millisecond regime, allowing our Time Tagger to capture it.
+
+\begin{figure}[h!]
+    \centering 
+    \includegraphics[width = 0.4 \textwidth]{Figures/PXL_20260611_192951368.MP.jpg}
+    \caption{DCR setup measurement. CW LASER incident into diffuser with SPAD detector at the end (left).  }
+\end{figure}
 
 The measurement procedure was as follows:
 \begin{enumerate}
-    \item A 785 nm CW laser was aligned to hit the outer edge of a rotating diffuser.
+    \item A 785 nm CW LASER was aligned to hit the outer edge of a rotating diffuser.
     \item The linear SPAD array was placed 0.5 cm behind the diffuser to detect the speckles.
-    \item To avoid hardware buffer overflow from high count rates, we lowered the laser intensity to a safe kilocounts-per-second (kcps) level.
+    \item To avoid hardware buffer overflow from high count rates, we lowered the LASER intensity to a safe kilocounts-per-second (kcps) level.
     \item To recover the Signal-to-Noise Ratio (SNR), we simultaneously measured the autocorrelation of 11 separate pixels to average them together.
     \item The measurement was repeated for different diffuser angular velocities (5, 10, 15, and 20 deg/s).
 \end{enumerate}
@@ -284,7 +295,7 @@ The measurement procedure was as follows:
 \textbf{Results} \\
 To process the data, each pixel's measurement was normalized by dividing it by its flat baseline. Figure \ref{fig:dcs_average_fit} shows the 11 individual pixels (faded) and their combined average (black). Averaging the pixels gives a much smoother exponential decay curve, allowing us to accurately fit the data and extract the decorrelation time ($\tau_c$). 
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/average11_decorrelation_spectroscopy.png}
     \caption{Normalized autocorrelation measurement for the rotating diffuser. The black line is the average of 11 pixels, which is fitted with an exponential curve (red dashed line) to extract $\tau_c$.}
