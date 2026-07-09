@@ -10,39 +10,106 @@
 % \end{center}
 
 
+% \subsection*{Lasers and Light Sources}
+% \begin{itemize}
+%     \item Pulsed LASER:  PicoQuant PDL Series
+%     \begin{itemize}\footnotesize
+%         \item \textbf{PicoQuant Laser Diode Head}
+%         \item \textbf{Wavelength:} 640 nm
+%         \item \textbf{Repetition Rate ($f_{rep}$):} Tunable frequencies (operated between 1 MHz and 80 MHz).
+%     \end{itemize}
+    
+%     \item \textbf{Continuous wave (CW) laser 1}
+%     \begin{itemize}\footnotesize
+%        \item \textbf{Thorlabs S1FC660 (Fiber-coupled)}
+%        \item \textbf{Wavelength:} 660 nm
+%        \item \textbf{Power:} Tunable from 0 mW to 19.8 mW
+%     \end{itemize}
+
+%     \item \textbf{Continuous wave (CW) laser 2}
+%     \begin{itemize}\footnotesize
+%         \item Thorlabs Benchtop Laser Diode Controller with mounted laser diode head.
+%         \item \textbf{Wavelength:} 785 nm
+%         \item \textbf{Power:} Tunable diode current (between 62.7 mA and 65.5 mA)
+%     \end{itemize}
+
+%     \item \textbf{Pseudothermal light simulator}
+%     \begin{itemize}\footnotesize
+%         \item Rotating glass diffuser (K10CR1/M). Motor Speed up to $20^\circ /s$. 
+%         \item CW laser 2
+%     \end{itemize}
+% \end{itemize}
+
+% \subsection*{Timing Electronics}
+% \begin{itemize}
+%     \item Swabian Instruments Time Tagger
+%     \begin{itemize}\footnotesize
+%         \item \href{https://www.swabianinstruments.com/static/documentation/TimeTagger/}{Model: Ultra, USB 3.0}
+%         \item Max Data Transfer Rate: 90 MTags/s
+%         \item Max Input Frequency: 475 MHz
+%         \item Dead Time: 2.1 ns
+%         \item Base Jitter: \href{https://www.swabianinstruments.com/static/downloads/TimeTaggerSeries.pdf}{42 ps RMS (100 ps FWHM)}
+%         \item Trigger Level Range: -2.5 V to +2.5 V
+%     \end{itemize}
+    
+% \end{itemize}
+
+% \subsection*{Detectors and Optical Components}
+% \begin{itemize}
+%     \item \textbf{2 Pixel SPAD Module}
+%     \begin{itemize}\footnotesize
+%         \item Model: \href{https://novoviz.com/two-pixel-correlator/}{NV02TPX}
+%         \item 64 bins of up to $5 ns$ width
+%     \end{itemize}
+
+%     \item \textbf{Linear SPAD Array Module}
+%     \begin{itemize}\footnotesize
+%         \item \textbf{Model:} \href{https://novoviz.com/small-line/}{Novoviz Small Line Sensor}
+%         \item \textbf{Architecture:} 24-pixel linear SPAD array
+%     \end{itemize}
+    
+%     \item \textbf{Neutral Density Filters}: 0.6, 2.3
+% \end{itemize}
 \subsection*{Lasers and Light Sources}
+\label{sec:lightsources}
 \begin{itemize}
-    \item Pulsed LASER:  PicoQuant PDL Series
+    \item \textbf{Pulsed LASER:} PicoQuant PDL Series
     \begin{itemize}\footnotesize
         \item \textbf{PicoQuant Laser Diode Head}
         \item \textbf{Wavelength:} 640 nm
         \item \textbf{Repetition Rate ($f_{rep}$):} Tunable frequencies (operated between 1 MHz and 80 MHz).
+        \item \textbf{FWHM of pulse:} $< 90\text{ ps}$
     \end{itemize}
     
-    \item \textbf{Continuous Wave (CW) LASER 1}
+    \item \textbf{Continuous wave (CW) laser 1}
     \begin{itemize}\footnotesize
        \item \textbf{Thorlabs S1FC660 (Fiber-coupled)}
        \item \textbf{Wavelength:} 660 nm
        \item \textbf{Power:} Tunable from 0 mW to 19.8 mW
+       \item \textbf{Application:} Used for the Poissonian Statistics Verification.
     \end{itemize}
 
-    \item \textbf{Continuous Wave (CW) LASER 2}
+    \item \textbf{Continuous wave (CW) laser 2}
     \begin{itemize}\footnotesize
-        \item Thorlabs Benchtop Laser Diode Controller with mounted laser diode head.
+        \item \textbf{Thorlabs Benchtop Laser Diode Controller}.
+        \item Mounted laser diode head.
         \item \textbf{Wavelength:} 785 nm
         \item \textbf{Power:} Tunable diode current (between 62.7 mA and 65.5 mA)
+        \item \textbf{Application:} Used for the Pseudothermal Light Simulator.
     \end{itemize}
 
-    \item \textbf{Pseudothermal Light Simulator}
+    \item \textbf{Pseudothermal light simulator}
     \begin{itemize}\footnotesize
-        \item Rotating glass diffuser (K10CR1/M). Motor Speed up to $20^\circ /s$. 
-        \item Continuous Wave (CW) LASER 2
+        \item \textbf{Light Source:} CW laser 2
+        \item \textbf{Rotating Stage:} Thorlabs K10CR1/M 
+        \item \textbf{Motor Speed:} Up to $20^\circ /s$
+        \item \textbf{Diffuser:} Glass diffuser %[Insert Part Number]
     \end{itemize}
 \end{itemize}
 
 \subsection*{Timing Electronics}
 \begin{itemize}
-    \item Swabian Instruments Time Tagger
+    \item \textbf{Swabian Instruments Time Tagger}
     \begin{itemize}\footnotesize
         \item \href{https://www.swabianinstruments.com/static/documentation/TimeTagger/}{Model: Ultra, USB 3.0}
         \item Max Data Transfer Rate: 90 MTags/s
@@ -58,15 +125,37 @@
 \begin{itemize}
     \item \textbf{2 Pixel SPAD Module}
     \begin{itemize}\footnotesize
-        \item Model: \href{https://novoviz.com/two-pixel-correlator/}{NV02TPX}
-        \item 64 bins of up to $5 ns$ width
+        \item \textbf{Model:} \href{https://novoviz.com/two-pixel-correlator/}{NV02TPX}
+        \item \textbf{Array format:} 2 x 1 pixels.
+        \item \textbf{Pixel Pitch:} $28 \mu m$ % Datasheet indicates 1100 um
+        \item \textbf{Dark count rate:} 10 cps
+        \item \textbf{Quenching:} passive with active recharge
     \end{itemize}
 
     \item \textbf{Linear SPAD Array Module}
     \begin{itemize}\footnotesize
         \item \textbf{Model:} \href{https://novoviz.com/small-line/}{Novoviz Small Line Sensor}
-        \item \textbf{Architecture:} 24-pixel linear SPAD array
+        \item \textbf{Array format:} 12 x 2 pixels.
+        \item \textbf{Pixel Pitch:} $125 \mu m$
+        \item \textbf{Quenching:} passive with active recharge
     \end{itemize}
     
-    \item \textbf{Neutral Density Filters}: 0.6, 2.3
+    \item \textbf{Illumination Diffuser}
+    \begin{itemize}\footnotesize
+        \item Glass diffuser %[Insert Part Number] used for uniform illumination
+        \item \href{https://www.thorlabs.com/ar-coated-n-bk7-ground-glass-diffusers?tabName=Overview}{N-BK7 Ground Glass Diffusers}
+    \end{itemize}
+
+    \item \textbf{Neutral Density Filters}
+    \begin{itemize}\footnotesize
+        \item \textbf{Absorptive ND glass filters}
+        \item \textbf{OD:} 0.6 and 2.3
+        \item \textbf{Wavelength Range:} from 400 nm to 700 nm
+        \item Broadband AR coating operating
+    \end{itemize}
+
+    \item \textbf{Fiber/Free Space Coupler:}
+    \begin{itemize}\footnotesize
+        \item \textbf{Model:}  Thorlabs SM1 FC2
+    \end{itemize}
 \end{itemize}

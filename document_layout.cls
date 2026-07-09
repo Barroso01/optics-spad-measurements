@@ -30,21 +30,21 @@
   \twocolumn[ % Ensure title and abstract span both columns
     \begin{center}
       {\LARGE \bfseries \@title \par} % Title
-      \vspace{1em}
+      %\vspace{0.5em}
     \end{center}
     \RaggedRight % Left-align authors and affiliations
     {\small \@author \par} % Authors and address
-    \vspace{1em}
+    \vspace{-0.5em}
     \begin{center}
       \section*{\small \abstractname}
-      \vspace{0.5em}
-      \begin{minipage}{0.85\textwidth} % Centered abstract block
+      %\vspace{0.1em}
+      \begin{minipage}{1\textwidth} % Centered abstract block
         \scriptsize
         \justifying
         \@abstract
       \end{minipage}
     \end{center}
-    \vspace{1.0em}
+    %\vspace{0.5em}
   ]
 }
 

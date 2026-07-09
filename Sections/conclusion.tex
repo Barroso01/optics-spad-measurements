@@ -1,9 +1,17 @@
-This work demonstrated the use of Single Photon Avalanche Diodes (SPADs) and Time-Correlated Single Photon Counting (TCSPC) to measure the second-order coherence function, $g^{(2)}(\tau)$, of various light sources. 
-By characterizing the detector hardware, the statistical differences between coherent lasers and super-Poissonian pseudothermal sources were discussed.
+This work demonstrated the use of single-photon avalanche diodes (SPADs) and time-correlated single-photon counting (TCSPC) to measure the second-order correlation function, $g^{(2)}(\tau)$, of various light sources. 
+By characterizing the detector hardware, the fundamental limitations of the measurements were established, and the statistical signatures of coherent lasers and super-Poissonian sources were obtained. \\
 
-The measurement of true thermal emission (fluorescent lab light) highlighted the fundamental temporal limits of the detector architecture. 
-The femtosecond decorrelation times of broad-bandwidth sources were shown to be entirely averaged out by the nanosecond dead-time and jitter of the SPADs, with any residual signal at zero-delay attributed to electronic and optical crosstalk between adjacent pixels rather than quantum photon bunching.
+An experimental data-processing pipeline was successfully implemented and validated for cross-correlation measurements.
+For pulsed laser illumination, the zero-delay cross-correlation, $g^{(2)}(0)$, was successfully measured by varying the coincidence criterion and under both high and low count-rate conditions, demonstrating the critical impact of statistical precision. 
+Furthermore, mapping the full temporal correlation function, $g^{(2)}(\tau)$, successfully resolved the characteristic comb structure of the pulsed emission. 
+By adjusting the correlation bin width to match the laser period, the expected flat integration baseline was recovered, validating the pipeline's capability to accurately capture and process cross-correlation dynamics. \\
 
-To bypass these ultrafast hardware limitations, a Diffuse Correlation Spectroscopy (DCS) setup was implemented. 
-By scattering a continuous-wave laser through a rotating diffuser, chaotic phase fluctuations were artificially slowed into the millisecond regime, allowing the TCSPC hardware to accurately capture the exponential decorrelation of the dynamic speckle pattern. Furthermore, leveraging the linear SPAD array through multi-pixel spatial averaging proved highly effective in reducing baseline measurement noise without requiring extreme count rates.
-Ultimately, this methodology captured the dynamic photon statistics, accounted for detector artifacts, and successfully linked the extracted decorrelation times to the kinematic properties of the macroscopic target.
+The measurement of a non-coherent broadband source (fluorescent lab light) highlighted the temporal limits of the detector architecture. 
+The femtosecond decorrelation times of such broad-bandwidth sources were shown to be entirely averaged out by the finite timing resolution of the SPADs and readout electronics. 
+The residual signal observed at zero delay was attributed to electronic timing effects and optical crosstalk between adjacent pixels, rather than true quantum photon bunching. \\
+
+Finally, a proof-of-principle demonstration of Diffuse Correlation Spectroscopy (DCS) was implemented using a rotating diffuser phantom. 
+Scattering a continuous-wave laser through this dynamic medium generated macroscopic speckle intensity fluctuations in the millisecond regime. 
+This allowed the TCSPC hardware to accurately capture the exponential decorrelation of the dynamic speckle pattern.
+Furthermore, using the linear SPAD array through multi-pixel spatial averaging proved effective in reducing baseline measurement noise in accordance with the theoretical $1/\sqrt{N}$ scaling. 
+Ultimately, this methodology captured the dynamic photon statistics, accounted for detector artifacts, and linked the extracted decorrelation times to the kinematic properties of the macroscopic target.

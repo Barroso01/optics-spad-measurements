@@ -1,7 +1,7 @@
 \documentclass{document_layout}
 
 % Title and author information 
-\title{MEASUREMENTS OF LIGHT STATISTICS WITH SPADs}
+\title{PHOTON COINCIDENCE MEASUREMENTS}
 \author{
     Eduardo Barroso\address{1} \quad Eikin Kizilkan\address{1} \quad Utku Karaca \address{2} \\[1em]
     \address{1} \textit{École Polytechnique Fédérale de Lausanne (EPFL)} \\
@@ -10,15 +10,18 @@
 \date{\today}
 
 %Abstract 
-\setabstract{This report documents the experimental characterization of Single Photon Avalanche Diodes (SPADs) and their application in classifying light sources via coincidence detection. 
-Measurements utilizing pulsed lasers and pseudothermal sources extract photon statistics and validate Diffuse Correlation Spectroscopy (DCS). 
-Throughout the document, hardware calibration, optical setups, and speckle decorrelation results are presented.}
+\setabstract{
+This work presents a brief characterization of SPADs and their application in correlation measurements.
+Measurements using lasers, thermal and pseudothermal light sources were performed to understand the limitations of measuring second order coherence.
+Initial measurements yield the zero-delay coherence value $g^{(2)}(0)$ for pulsed lasers and map the complete correlation function  $g^{(2)}(\tau)$. 
+Finally, a rotating diffuser was implemented to generate dynamic speckle patterns providing a demonstration of speckle decorrelation time ($\tau_c$). 
+}
 
 % Begin the document
 \begin{document}
 
 \maketitle
-    
+
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction}
 \input{Sections/introduction}
@@ -34,11 +37,11 @@ Throughout the document, hardware calibration, optical setups, and speckle decor
 \input{Sections/materials} 
 
 \newpage
-\section*{Layout and Hardware Calibration}
+\section*{Layout and Calibration}
 \addcontentsline{toc}{section}{Layout and Hardware Calibration}
 \input{sections/layout-calibration.tex}
 
-\newpage
+%\newpage
 \section*{Poissonian Statistics Verification}
 \addcontentsline{toc}{section}{Poissonian Statistics Verification}
 \input{Sections/poisson.tex}
@@ -49,14 +52,21 @@ Throughout the document, hardware calibration, optical setups, and speckle decor
 \input{Sections/exp_coincidences.tex}
 
 \newpage 
+\onecolumn
 \section*{Conclusion}
 \addcontentsline{toc}{section}{Conclusion}
 \input{Sections/conclusion}
+\twocolumn
 
 % References
 \onecolumn
 \printbibliography
 \addcontentsline{toc}{section}{References}
 \twocolumn
+
+%\onecolumn
+%\newpage
+%\section*{Questions}
+%\input{Sections/questions-answers.tex}
 
 \end{document} 
