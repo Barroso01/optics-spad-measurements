@@ -32,7 +32,7 @@ Instead, it implements a Hanbury Brown--Twiss (HBT)-type intensity correlation m
 This spatial configuration is effective due to the close proximity of the detectors; the pixel pitch is $28 \, \mu\text{m}$ for the two-pixel module (NV02TPX). 
 Under ideal coherent pulsed illumination, the independent arrival of photons means the expected theoretical result is $g^{(2)}(0) = 1$.
 
-\subsubsection{Pulsed laser Measurements (05.06.2026)}
+\subsubsection{Pulsed laser Measurements} %(05.06.2026)
 Measurements of $g^{(2)}(\tau=0)$ were taken with 10 ps resolution with a laser attenuation adjusted to obtain $\sim 2\%$ of total pulses detected by the SPADs. 
 Results are summarized in Figure \ref{fig:g2(0)_measurements_80MHz_1MHz_run1}.\\
 
@@ -112,7 +112,7 @@ If true, this blinds the neighboring SPAD during the brief $< 90\text{ ps}$ lase
 If this hypothesis holds, increasing the incident optical power to drive the detectors into a saturated, multi-photon regime should overcome the blinding and recover the expected flat $g^{(2)}(0) = 1$ signal. 
 This modified high-power condition is tested in the subsequent section.
 
-\subsubsection{Pulsed laser Measurement (05.15.2026)}
+\subsubsection{Pulsed laser Measurement} %(05.15.2026)
 In Figure \ref{fig:g2(0)_measurements_80MHz_1MHz_run1}, we did not obtain the expected value of $g^{(2)}(0) = 1$. 
 We believe the discrepancy is a consequence of the low operational power ($3\ \mu\text{W}$), where a low average number of photons per pulse leads to low single-photon detection probabilities and low count rates. 
 This affects the statistical precision of the coincidence measurement against baseline timing fluctuations. 
@@ -203,7 +203,7 @@ In contrast, for true thermal sources, the zero-delay correlation sits at $1 < g
 The temporal width of this decay is a direct measure of the coherence time \footnote{For true broadband thermal sources, this coherence time is fundamentally determined by the optical bandwidth of the emission.}.
 
 
-\subsubsection{Pulsed laser Measurements (05.06.2026)}
+\subsubsection{Pulsed laser Measurements} %(05.06.2026)
 Results are summarized in Figures \ref{fig:g2(tau)_measurement_corrected_final} and \ref{fig:g2(tau)_measurement_LabLight_1000kcp_bin10ps.png}.
 Each figure comprises three subplots illustrating the data processing pipeline: the raw coincidence histogram $G^{(2)}(\tau)$ (grey), the correlation normalized via the Swabian API $g_{\text{swabian}}^{(2)}(\tau)$ (blue), and the manually normalized correlation $g_{\text{python}}^{(2)}(\tau)$ (red).
 
@@ -258,7 +258,7 @@ The corrected measurement, successfully eliminating the binning artifacts, is pr
 While setting the correlation bin width equal to the laser's repetition period yields a flat $g^{(2)}(\tau) = 1.0$ response, this must not be misinterpreted as continuous Poissonian emission. 
 Rather, it is a temporal integration artifact where each macroscopic bin perfectly envelopes exactly one discrete pulse.
 
-\subsubsection{Thermal Source Measurements (05.12.2026)}
+\subsubsection{Thermal Source Measurements} %(05.12.2026)
 Next, we turn our attention to the thermal sources. 
 We shine a thermal lamp into the SPAD and obtain its correlation function.
 \begin{itemize}
