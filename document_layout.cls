@@ -17,7 +17,7 @@
 \pagestyle{fancy}
 \fancyhf{} % Clear all headers and footers
 \fancyhead[L]{\textit{\@title}} % Left-aligned running head with title
-\fancyhead[R]{\textit{@epfl.ch}} % Right-aligned running head
+\fancyhead[R]{\textit{aqualabs}} % Right-aligned running head
 \fancyfoot[C]{\thepage} % Page numbers in the footer
 \setlength{\headheight}{15pt} % Adjust head height to avoid warnings
 
@@ -70,7 +70,7 @@
 % Bibliography command
 \newcommand{\printbibliography}{
   \twocolumn[ 
-  \bibliographystyle{apalike}
+  \bibliographystyle{unsrt}
   \bibliography{bibliography/references.bib}
   ]
 }

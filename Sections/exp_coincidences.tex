@@ -204,6 +204,7 @@ The temporal width of this decay is a direct measure of the coherence time \foot
 
 
 \subsubsection{Pulsed laser Measurements} %(05.06.2026)
+\label{subsec:Pulsed}
 Results are summarized in Figures \ref{fig:g2(tau)_measurement_corrected_final} and \ref{fig:g2(tau)_measurement_LabLight_1000kcp_bin10ps.png}.
 Each figure comprises three subplots illustrating the data processing pipeline: the raw coincidence histogram $G^{(2)}(\tau)$ (grey), the correlation normalized via the Swabian API $g_{\text{swabian}}^{(2)}(\tau)$ (blue), and the manually normalized correlation $g_{\text{python}}^{(2)}(\tau)$ (red).
 
@@ -259,6 +260,7 @@ While setting the correlation bin width equal to the laser's repetition period y
 Rather, it is a temporal integration artifact where each macroscopic bin perfectly envelopes exactly one discrete pulse.
 
 \subsubsection{Thermal Source Measurements} %(05.12.2026)
+\label{subsec:Thermal}
 Next, we turn our attention to the thermal sources. 
 We shine a thermal lamp into the SPAD and obtain its correlation function.
 \begin{itemize}
@@ -291,14 +293,31 @@ However, the oscillations surrounding this central peak cannot be explained by c
 These may be attributed to electronic timing effects, such as signal ringing or reflections in the readout circuitry, as well as potential normalization artifacts within the data processing window. 
 Outside of this nanosecond hardware interference region, the correlation function correctly rests at a flat baseline of $g^{(2)}(\tau) = 1$, consistent with the expected temporal averaging of ultrafast thermal statistics.
 
-% I would like to add the low cps measurements with the flat g2 function to reinforce the last sentence. Do lower CPS ensure lower crosstalk? If so this can also justify our first argument. 
+% Would like to add the low cps measurements with the flat g2 function to reinforce the last sentence. Do lower CPS ensure lower crosstalk? If so this can also justify our first argument. 
+
+\subsubsection{CW Laser Source Measurements}
+Once the cross-correlation measurement pipeline was behaving as expected using the pulsed laser (section \ref{subsec:Pulsed}) and its temporal limits were established via the thermal sources (section \ref{subsec:Thermal}), the $g^{(2)}(\tau)$  of a continuous-wave laser source was measured. 
+In particular, we utilized the CW-laser 2 listed in section \ref{sec:lightsources}. 
+
+To ensure the SPAD array operated within a linear regime, we used the result from the autocorrelation measurement in figure \ref{fig:autocorr}. The value of $1/4.9 ns \approx 200 Mcps$ defines the absolute theoretical maximum count rate of the hardware. 
+To prevent saturation and avoid statistical distortion from photon pile-up, the incident optical power was attenuated using neutral density filters below the $1\%$ regime. 
+The results shown in figure \ref{fig:g2(tau)_measurement_CW_1Mcp_bin50ns.png} where obtained at a rate of $~1\text{ Mcps}$. 
+Under low-flux conditions, the pure phase-coherent state of the CW laser successfully yielded the expected flat correlation baseline of $g^{(2)}(\tau) = 1$ across a $10 \mu s$ window.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Figures/g2(tau)_measurement_CW_1Mcp_bin50ns.png}
+    \caption{Cross-correlation function measurement for the continuous wave laser.}
+    \label{fig:g2(tau)_measurement_CW_1Mcp_bin50ns.png}
+\end{figure}
+
 
 \subsection{3rd Measurement: Diffuse Correlation Spectroscopy}
 
 As seen in the second measurement, true thermal light decorrelates in femtoseconds, which is too fast for the SPAD dead time to measure. 
 To address this, we utilized a pseudo-thermal light source. 
 The experiment shines the 785 nm continuous-wave (CW) laser through a rotating diffuser to generate a dynamic speckle pattern. 
-The formula for the average speckle diameter $S\approx 1.22 \lambda z_{det} / D$ yields a proxy value of $1.58 \mu m$ for our particular setup \footnote{Assuming a uniform circular scattering spot, an operating wavelength of $785\text{ nm}$, and perfect laser alignment spanning exactly half of the diffuser's diameter (i.e an illumination spot size of $D = 22.7\text{ mm}$).}.
+The formula for the average speckle diameter $S \approx 1.22 \lambda z_{det} / D$, where $z_{det}$ is the distance from the diffuser to the detector plane, yields an estimated speckle diameter of $1.58\ \mu\text{m}$ for our particular setup.\footnote{Assuming a uniform circular scattering spot, an operating wavelength of $785\text{ nm}$, and perfect laser alignment spanning exactly half of the diffuser's diameter (i.e an illumination spot size of $D = 22.7\text{ mm}$).}.
 By changing the motor speed, this moving diffuser creates macroscopic intensity fluctuations in the millisecond regime, allowing our Time Tagger to capture the decorrelation dynamics.
 
 \begin{figure}[h!]
@@ -311,7 +330,7 @@ By changing the motor speed, this moving diffuser creates macroscopic intensity 
 The measurement procedure was as follows:
 \begin{enumerate}
     \item A 785 nm CW laser was aligned to hit the right edge of a rotating diffuser.
-    \item The linear SPAD array was placed $37.5\text{ mm}$ behind the diffuser to detect the speckles.
+    \item The line sensor SPAD array was placed at a distance $z_{det}=37.5\text{ mm}$ behind the diffuser to detect the speckles.
     \item To avoid hardware buffer overflow from high count rates, we lowered the laser intensity to a safe kilocounts-per-second (kcps) level.
     \item To recover the signal-to-noise ratio (SNR), we simultaneously measured the autocorrelation of 11 separate pixels to average them together.
     \item The measurement was repeated for different diffuser angular velocities (5, 10, 15, and 20 deg/s).
@@ -326,7 +345,7 @@ where $\beta$ is the spatial coherence factor and $\tau_c$ is the characteristic
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.42\textwidth]{figures/average11_decorrelation_spectroscopy.png}
+    \includegraphics[width=0.5\textwidth]{figures/average11_decorrelation_spectroscopy.png}
     \caption{Normalized autocorrelation measurement for the rotating diffuser. The black line is the average of 11 pixels, which is fitted with an exponential curve (red dashed line) to extract $\tau_c$.}
     \label{fig:dcs_average_fit}
 \end{figure}
@@ -343,7 +362,7 @@ As we average more pixels ($N$), the measured decorrelation time remains stable,
 
 Finally, Figure \ref{fig:velocity_sweep} plots the extracted $\tau_c$ against the different motor speeds. 
 As the diffuser spins faster, the speckles move past the detector faster, causing the decorrelation time to drop. 
-This inverse relationship successfully validates this proof-of-principle demonstration of Diffuse Correlation Spectroscopy (DCS) using a rotating diffuser phantom.
+This inverse relationship is consistent with this proof-of-principle demonstration of Diffuse Correlation Spectroscopy (DCS) using a the pseudo-thermal source.
 
 \begin{figure}[h!]
     \centering

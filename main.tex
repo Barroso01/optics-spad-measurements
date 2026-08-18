@@ -3,7 +3,7 @@
 % Title and author information 
 \title{PHOTON COINCIDENCE MEASUREMENTS}
 \author{
-    Eduardo Barroso\address{1} \quad Eikin Kizilkan\address{1} \quad Utku Karaca \address{2} \\[1em]
+    Eduardo Barroso\address{1} \quad Ekin Kizilkan\address{1} \quad Utku Karaca \address{2} \\[1em]
     \address{1} \textit{École Polytechnique Fédérale de Lausanne (EPFL)} \\
     \address{2} \textit{Novoviz}
 }
@@ -32,11 +32,6 @@ Finally, a rotating diffuser was implemented to generate dynamic speckle pattern
 \twocolumn
 
 \newpage
-\section{Equipment and Materials}
-%\addcontentsline{toc}{section}{Equipment and Materials}
-\input{Sections/materials} 
-
-\newpage
 \section{Layout and Calibration}
 %\addcontentsline{toc}{section}{Layout and Hardware Calibration}
 \input{sections/layout-calibration.tex}
@@ -51,12 +46,15 @@ Finally, a rotating diffuser was implemented to generate dynamic speckle pattern
 %\addcontentsline{toc}{section}{Coincidence Measurements}
 \input{Sections/exp_coincidences.tex}
 
-\newpage 
-\onecolumn
+%\newpage 
 \section*{Conclusion}
 \addcontentsline{toc}{section}{Conclusion}
 \input{Sections/conclusion}
-\twocolumn
+
+\newpage
+\section*{Appendix: Equipment}
+\addcontentsline{toc}{section}{Appendix: Equipment}
+\input{Sections/materials} 
 
 % References
 \onecolumn
@@ -64,9 +62,8 @@ Finally, a rotating diffuser was implemented to generate dynamic speckle pattern
 \addcontentsline{toc}{section}{References}
 \twocolumn
 
-%\onecolumn
-%\newpage
-%\section*{Questions}
-%\input{Sections/questions-answers.tex}
+\onecolumn
+\newpage
+\input{Sections/questions-answers.tex}
 
 \end{document} 

@@ -1,10 +1,13 @@
+\section*{Acknowledgements}
+\textit{Thank you Ekin, Utku, and Paul Moss for actively guiding me through this work. I appreciate the collaboration of Novoviz for providing guidance and hardware.}
+
+\section*{Questions}
 \begin{itemize}
     \item 1- Your jitter curves here are different than what you have presented in the final presentation or other slides you have sent me. What changed? 
-    \item 1A- In the presentation, I showed a $425 ps$ of FWHM corresponding to the pulsed laser operating at $1MHz$ and $33 \mu W$. On the report opted to show a $160 ps$ FWHM at $80MHz$ and $33 \mu W$ . I saved all the data in: \verb|datacoincidence_meas_run1_80MHz_100uW| and \verb|data_coincidence_meas_run2_1MHz_33uW|. I also have saved values for if you are intrested in exporing these results. I also have: \verb|data_coincidence_meas_run1_1MHz_3uW| and \verb|data_coincidence_meas_run1_ThermalSources_g2|. I placed the two figures bellow for referece. In my opinion, this is due to the source jitter rather than the SPAD. 
+    \item 1A- In the presentation, I showed a $425 ps$ of FWHM corresponding to the pulsed laser operating at $1MHz$ and $33 \mu W$. On the report, I opted to show a $160 ps$ FWHM at $80MHz$ and $33 \mu W$ . All the data is saved in: \verb|datacoincidence_meas_run1_80MHz_100uW| and \verb|data_coincidence_meas_run2_1MHz_33uW|. I placed the two figures bellow for referece. This is due to the source jitter rather than the SPAD. 
     \item 2- These look better, but how did you get these, whats the difference? 
-    \item 2A- Both the power and the frequency changed. Although I suspect the frequency is the main culpit. Longer jitter corresponded to the setting with lower frequency. 
-    \item 3- Important for full Coincidence Measurements section!: I believe you did the same mistake
-here as during your final presentation. You should have used two SPADs in this
+    \item 2A- Both the power and the frequency differ. I am sure the frequency is the main culpit. Longer jitter corresponded to the setting with lower frequency. 
+    \item 3- Important for full Coincidence Measurements section: You should have used two SPADs in this
 experiment, as written in the procedures I gave you in the beginning. Therefore,
 there is no auto-correlation, there is no term of auto-correlation function for
 laser or thermal lamp etc. here. It is still cross-correlation. You should have
@@ -14,7 +17,7 @@ am very confused with the experiment you performed here. You switched to
 getting auto-correlation of single SPADs (not laser) with rotating diffuser
 experiment. You utilized SPADA and SPADB until that experiment, which makes
 your results cross-correlation until rotating diffuser. 
-\item 3A-You are entirely correct —the measurements were \textbf{cross-correlations} between the two SPADs, not autocorrelations. I had the Wiener-Khinchin theorem on my mind from my recent metrology exam and mixed up the terminology in the text. I proceed to clarify this mistake with the actual syntax I used for the measurements:
+\item 3A-You are correct. The measurements were \textbf{cross-correlations} between the two SPADs, not autocorrelations. I was studying the Wiener-Khinchin theorem at the time and ended up mixing up the terminology in the presentation and text. I proceed to clarify this mistake with the actual syntax I used for the measurements:
 \begin{itemize} \footnotesize
     \item For the 1st Measurement, I measured cross-correlation: 
     \item[] $counter = tt.Counter(tagger, [spadA, spadB, sync], binwidth=exposuretime, nvalues=1) $
@@ -23,13 +26,11 @@ your results cross-correlation until rotating diffuser.
     \item For the 2nd Measurement and the jitter curves, again is cross-correlation: 
     \item[] $tt.Correlation(tagger, spadA, spadB, binwidth=binwidthps, nbins=nbins)$
 \end{itemize}
-
 \end{itemize}
 
-
 \begin{center}
-    \includegraphics[width=0.4\textwidth]{Figures/answers_jitter1MHZ.png}
-    \includegraphics[width=0.4\textwidth]{Figures/answers_jitter80MHZ.png}
+    \includegraphics[width=0.3\textwidth]{Figures/answers_jitter1MHZ.png}
+    \includegraphics[width=0.3\textwidth]{Figures/answers_jitter80MHZ.png}
 \end{center}
 
 
