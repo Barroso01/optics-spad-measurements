@@ -4,9 +4,19 @@
 %%% Replicate the temporal autocorrelation measurements from Wayne et.al. (2023)
 %%% Single pixel autocorrelation model g(2) = n n(\tau) / n^2
 %%% Ensable (spatial) average formula to combine pixels. 
+Beyond hardware and light source characterization, photon correlation techniques apply directly to optical metrology. 
+Measuring photon arrival times allows us to calculate the temporal autocorrelation function, $g^{(2)}(\tau)$, of a light signal.
+When coherent light enters a dynamic scattering medium, the movement of internal scatterers causes the resulting optical speckle pattern to decorrelate over time. 
+Therefore, decorrelation measurements provide valuable information about the dynamics of the medium through the decorrelation time. 
+A primary example of a dynamic scattering medium is biological tissue containing flowing red blood cells. 
+Diffuse Correlation Spectroscopy (DCS) applies these decorrelation measurements to monitor blood flow and evaluate deep tissues, including the brain \cite{buckley2015decreased, rajaram2018simultaneous}, breast \cite{he2015noncontact, yazdi2017mapping}, and skin \cite{agochukwu2017novel}.
 
-%% Experimental Setup 
-%%% Params: 785 nm, 60 mW, 
+This section aims to reproduce the multispeckle DCS measurements presented by Wayne et al. (2023) \cite{wayne2023massively}. 
+We demonstrate an increase in temporal resolution by using a setup built from commercially available SPAD line sensors and Time-to-Digital Converters (TDCs).
+In their study, Wayne et al. calculated the temporal autocorrelation of a dynamic speckle field to yield the characteristic decorrelation time of the speckles.
+Because a single detector provides a low signal-to-noise ratio in deep-tissue measurements, their methodology combined data from multiple independent pixels to increase the measurement sensitivity.
+We apply their ensemble spatial average formula, $\bar{g}_2(\tau)|_M = \frac{1}{M}\sum_{i=1}^{M}g_2^i(\tau)$, to calculate the mean correlation across a SPAD line sensor array of $M = 12$ pixels.
+
 %%% SPAD: 125 um, Z_SPAD 10 mm Z_laser 150 mm , geometry, DCR,
 %%% Datarates, 150 kps, at a int time, results in certain number of counts, which need to be sent to the computer. Limit from swiabian, limit from PC?
 %%% Measured spot size? 
